@@ -1,0 +1,569 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/backgroud"
+    android:paddingBottom="@dimen/sdk_activity_vertical_margin"
+    android:paddingLeft="@dimen/sdk_activity_horizontal_margin"
+    android:paddingRight="@dimen/sdk_activity_horizontal_margin"
+    android:paddingTop="@dimen/sdk_activity_vertical_margin">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <!-- ===== Header ===== -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="VLPlay SDK Demo"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:textColor="#FFFFFF"
+            android:gravity="center"
+            android:paddingBottom="4dp" />
+
+        <TextView
+            android:id="@+id/tvStatus"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Vui lòng đăng nhập"
+            android:textColor="#AAAAAA"
+            android:textSize="13sp"
+            android:gravity="center"
+            android:paddingBottom="12dp" />
+
+        <!-- ===== SDK Config Info ===== -->
+        <LinearLayout
+            android:id="@+id/layoutSdkConfig"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="#CC1A1A2E"
+            android:padding="10dp"
+            android:layout_marginBottom="8dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="SDK Config"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                android:textColor="#FFFFFF"
+                android:paddingBottom="2dp" />
+
+            <TextView
+                android:id="@+id/tvConfigEnv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Env: ---"
+                android:textColor="#88FF88"
+                android:textSize="11sp"
+                android:fontFamily="monospace" />
+
+            <TextView
+                android:id="@+id/tvConfigClientId"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="ClientID: ---"
+                android:textColor="#88FF88"
+                android:textSize="11sp"
+                android:fontFamily="monospace" />
+
+            <TextView
+                android:id="@+id/tvConfigApiKey"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="ApiKey: ---"
+                android:textColor="#88FF88"
+                android:textSize="11sp"
+                android:fontFamily="monospace" />
+
+            <TextView
+                android:id="@+id/tvConfigServer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Server: ---"
+                android:textColor="#88FF88"
+                android:textSize="11sp"
+                android:fontFamily="monospace" />
+
+            <TextView
+                android:id="@+id/tvConfigFeatures"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Features: ---"
+                android:textColor="#88FF88"
+                android:textSize="11sp"
+                android:fontFamily="monospace" />
+
+            <TextView
+                android:id="@+id/tvConfigSocial"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Social: ---"
+                android:textColor="#88FF88"
+                android:textSize="11sp"
+                android:fontFamily="monospace" />
+
+            <TextView
+                android:id="@+id/tvConfigSupport"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Support: ---"
+                android:textColor="#88FF88"
+                android:textSize="11sp"
+                android:fontFamily="monospace" />
+
+            <TextView
+                android:id="@+id/tvConfigMaintenance"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Maintenance: ---"
+                android:textColor="#88FF88"
+                android:textSize="11sp"
+                android:fontFamily="monospace" />
+
+            <TextView
+                android:id="@+id/tvConfigTracking"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Tracking: ---"
+                android:textColor="#88FF88"
+                android:textSize="11sp"
+                android:fontFamily="monospace" />
+        </LinearLayout>
+
+        <!-- ===== Pre-Login: Login Button ===== -->
+        <LinearLayout
+            android:id="@+id/layoutPreLogin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:visibility="visible">
+
+            <Button
+                android:id="@+id/btn_Start"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Đăng nhập / Đăng ký"
+                android:textSize="16sp"
+                android:backgroundTint="#4CAF50" />
+        </LinearLayout>
+
+        <!-- ===== Post-Login: Game Screen ===== -->
+        <LinearLayout
+            android:id="@+id/layoutGameScreen"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <!-- User Info Card -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="#33FFFFFF"
+                android:padding="12dp"
+                android:layout_marginBottom="8dp">
+
+                <TextView
+                    android:id="@+id/tvUserName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="User: ---"
+                    android:textColor="#FFFFFF"
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tvUserId"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="ID: ---"
+                    android:textColor="#CCCCCC"
+                    android:textSize="12sp" />
+
+                <TextView
+                    android:id="@+id/tvLoginType"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Type: ---"
+                    android:textColor="#CCCCCC"
+                    android:textSize="12sp" />
+
+                <TextView
+                    android:id="@+id/tvPlayTime"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Play: 0 min | Remaining: --"
+                    android:textColor="#FFEB3B"
+                    android:textSize="12sp"
+                    android:paddingTop="4dp" />
+
+                <TextView
+                    android:id="@+id/tvAntiAddiction"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="AA: ---"
+                    android:textColor="#FFEB3B"
+                    android:textSize="12sp" />
+            </LinearLayout>
+
+            <!-- Game Actions Row 1 -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Game Actions"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:textColor="#FFFFFF"
+                android:paddingBottom="4dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/btn_account"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Tài khoản"
+                    android:textSize="12sp" />
+
+                <Button
+                    android:id="@+id/btn_Payment"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Nạp tiền"
+                    android:textSize="12sp"
+                    android:backgroundTint="#FF9800" />
+
+                <Button
+                    android:id="@+id/btn_Logout"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Đăng xuất"
+                    android:textSize="12sp"
+                    android:backgroundTint="#F44336" />
+            </LinearLayout>
+
+            <!-- Payment Products -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Gói nạp"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:textColor="#FFFFFF"
+                android:paddingTop="8dp"
+                android:paddingBottom="4dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/btn_buy_100"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="100 KC\n22,000đ"
+                    android:textSize="11sp" />
+
+                <Button
+                    android:id="@+id/btn_buy_500"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="500 KC\n99,000đ"
+                    android:textSize="11sp" />
+
+                <Button
+                    android:id="@+id/btn_buy_1000"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="1000 KC\n199,000đ"
+                    android:textSize="11sp" />
+            </LinearLayout>
+
+            <!-- Gift Code -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingTop="8dp">
+
+                <EditText
+                    android:id="@+id/edtGiftCode"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="3"
+                    android:hint="Nhập mã quà tặng"
+                    android:textSize="13sp"
+                    android:textColor="#FFFFFF"
+                    android:textColorHint="#888888"
+                    android:background="#33FFFFFF"
+                    android:padding="10dp" />
+
+                <Button
+                    android:id="@+id/btn_redeem"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Đổi mã"
+                    android:textSize="12sp"
+                    android:backgroundTint="#9C27B0" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- ===== Divider ===== -->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#444444"
+            android:layout_marginTop="12dp" />
+
+        <!-- ===== Event Testing (debug) ===== -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Debug Tools"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:textColor="#FFFFFF"
+            android:paddingTop="8dp"
+            android:paddingBottom="4dp" />
+
+        <Button
+            android:id="@+id/btn_toggle_demo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Demo Mode: OFF"
+            android:textSize="12sp" />
+
+        <Button
+            android:id="@+id/btn_fire_all"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="FIRE ALL 125 EVENTS"
+            android:textSize="12sp"
+            android:backgroundTint="#FF5722" />
+
+        <TextView
+            android:id="@+id/tvEventLog"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:textColor="#88FF88"
+            android:textSize="10sp"
+            android:fontFamily="monospace"
+            android:paddingTop="4dp"
+            android:paddingBottom="4dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btn_evt_lifecycle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Lifecycle\n(5)"
+                android:textSize="9sp" />
+            <Button
+                android:id="@+id/btn_evt_login"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Login\n(7)"
+                android:textSize="9sp" />
+            <Button
+                android:id="@+id/btn_evt_register"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Register\n(6)"
+                android:textSize="9sp" />
+            <Button
+                android:id="@+id/btn_evt_third"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="3rd Login\n(5)"
+                android:textSize="9sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <Button
+                android:id="@+id/btn_evt_autologin"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="AutoLogin\n(3)"
+                android:textSize="9sp" />
+            <Button
+                android:id="@+id/btn_evt_payment"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Payment\n(12)"
+                android:textSize="9sp" />
+            <Button
+                android:id="@+id/btn_evt_logout"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Logout\n(3)"
+                android:textSize="9sp" />
+            <Button
+                android:id="@+id/btn_evt_delete"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Delete\n(5)"
+                android:textSize="9sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <Button
+                android:id="@+id/btn_evt_bind"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Bind\n(10)"
+                android:textSize="9sp" />
+            <Button
+                android:id="@+id/btn_evt_game"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Game\n(67)"
+                android:textSize="9sp" />
+            <Button
+                android:id="@+id/btn_evt_legacy"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Legacy\n(3)"
+                android:textSize="9sp" />
+            <Button
+                android:id="@+id/btn_evt_retention"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Retention\n(4)"
+                android:textSize="9sp" />
+        </LinearLayout>
+
+        <!-- Anti-Addiction -->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#444444"
+            android:layout_marginTop="8dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Anti-Addiction (NĐ 147/2024)"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:textColor="#FFFFFF"
+            android:paddingTop="8dp"
+            android:paddingBottom="4dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <Button
+                android:id="@+id/btn_aa_warning"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Warning"
+                android:textSize="10sp"
+                android:backgroundTint="#FF9800" />
+            <Button
+                android:id="@+id/btn_aa_kick"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Kick"
+                android:textSize="10sp"
+                android:backgroundTint="#F44336" />
+            <Button
+                android:id="@+id/btn_aa_session"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Session"
+                android:textSize="10sp" />
+            <Button
+                android:id="@+id/btn_aa_status"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Status"
+                android:textSize="10sp" />
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="V3 IAP (PARITY-A2)"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:textColor="#FFFFFF"
+            android:paddingTop="12dp"
+            android:paddingBottom="4dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <Button
+                android:id="@+id/btn_iap_catalog"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Catalog"
+                android:textSize="10sp"
+                android:backgroundTint="#4CAF50" />
+            <Button
+                android:id="@+id/btn_iap_purchase"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Purchase pack_001"
+                android:textSize="10sp"
+                android:backgroundTint="#2196F3" />
+            <Button
+                android:id="@+id/btn_iap_history"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="History"
+                android:textSize="10sp"
+                android:backgroundTint="#9C27B0" />
+        </LinearLayout>
+
+    </LinearLayout>
+</ScrollView>

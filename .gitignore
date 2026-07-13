@@ -1,0 +1,87 @@
+# vl-game-demos — REPO PUBLIC. Tuyệt đối không commit keystore / password / creds.
+
+# ─── macOS / editor ───
+.DS_Store
+*.swp
+
+# ─── Secrets & per-machine config ───
+# Khai theo PATTERN (không theo path 1 project) để demo thêm sau tự động được che.
+# Copy file .example cạnh bên rồi điền giá trị thật (lấy từ CMS / Ops).
+#
+# Creds SDK per-game (clientId / clientSecret / apiKey / AppsFlyer dev key):
+**/VLPlaySettings.asset
+**/VLPlaySettings.asset.meta
+**/res/raw/sdkconfig.xml
+VLPlaySDK-Info.plist
+# Ký & mật khẩu:
+local.properties
+keystore.properties
+*.jks*
+*.keystore*
+*.p12
+*.p8
+*.pem
+*.mobileprovision
+*.cer
+# Env / secrets chung:
+.env
+.env.*
+secrets.properties
+
+# Firebase config per-game — tải lại từ Firebase Console (project vplay-493515)
+google-services.json
+GoogleService-Info.plist
+
+# ─── Unity (vlplay-unity-demo) ───
+[Ll]ibrary/
+[Tt]emp/
+[Oo]bj/
+[Bb]uild/
+[Bb]uilds/
+[Ll]ogs/
+[Uu]serSettings/
+[Mm]emoryCaptures/
+[Rr]ecordings/
+.utmp/
+.vsconfig
+sysinfo.txt
+crashlytics-build.properties
+# IDE project files Unity tự sinh
+*.csproj
+*.unityproj
+*.sln
+*.user
+*.pidb
+*.booproj
+*.svd
+*.pdb
+*.mdb
+*.opendb
+*.VC.db
+
+# ─── Android (g01-android-game) ───
+.gradle/
+.idea/
+*.iml
+captures/
+.externalNativeBuild/
+.cxx/
+g01-android-game/app/release/
+
+# ─── iOS / Xcode / CocoaPods (g01-ios-game) ───
+# Pods/ tái tạo bằng `pod install`; Podfile.lock THÌ commit (pin version).
+Pods/
+xcuserdata/
+*.xcuserstate
+*.xcscmblueprint
+*.xccheckout
+DerivedData/
+# LƯU Ý: LocalPods/**/VLPlaySDK.xcframework (binary) CỐ Ý commit — nó là artifact
+# được consume, y như g01-android-game/app/libs/VLPlaySDK-G01.aar.
+
+# ─── Build artifacts ───
+*.apk
+*.aab
+*.ipa
+*.dSYM.zip
+*.unitypackage

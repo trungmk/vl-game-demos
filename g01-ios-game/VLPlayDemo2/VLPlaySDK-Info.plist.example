@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Template — copy to "VLPlaySDK-Info.plist" and fill in real credentials.
+  The real plist is gitignored. Get values from VL Ops (CMS provisioning).
+-->
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>APPSFLYER_DEV_KEY</key>
+	<string>YOUR_APPSFLYER_DEV_KEY</string>
+	<key>APPSTORE_ID</key>
+	<string>YOUR_APPSTORE_ID</string>
+	<key>UTM_STRING</key>
+	<string></string>
+	<key>DIRECT_VERSION</key>
+	<false/>
+	<key>VLPLAY_APP_ID</key>
+	<string>YOUR_GAME_CLIENT_ID</string>
+	<key>VLPLAY_APP_SECRET</key>
+	<string>YOUR_GAME_CLIENT_SECRET</string>
+	<key>LANGUAGE</key>
+	<string>vie</string>
+	<key>VLPLAY_APP_ID_EN</key>
+	<string>YOUR_GAME_CLIENT_ID</string>
+	<key>VLPLAY_API_KEY</key>
+	<string>YOUR_VLPLAY_API_KEY</string>
+	<key>sdk_demo_mode</key>
+	<false/>
+</dict>
+</plist>

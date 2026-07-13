@@ -1,0 +1,36 @@
+# g01-ios-game — consumes VLPlaySDK as a prebuilt G01 xcframework (binary mode).
+#
+# iOS analog of g01-android-game (which consumes VLPlaySDK-G01.aar). The binary
+# already has AppsFlyer / Firebase / GoogleSignIn / ZMJTipView / SVProgressHUD
+# linked in; the local podspec adds only the external dynamic deps (FBSDK +
+# OneSignal) and ships the UI resource bundles the xcframework omits.
+#
+# To switch back to source path dependency (dev mode), restore:
+#   pod 'VLPlaySDK', :path => '../vlgame-sdk-ios'
+platform :ios, '15.0'
+use_frameworks!
+
+target 'VLPlayDemo2' do
+  pod 'VLPlaySDK', :path => 'LocalPods/VLPlaySDK'
+  # IAA AdMob — host opts into the ad vendor (DP-2a soft-link: the xcframework
+  # references GADMobileAds via NSClassFromString, never links it). Requires the
+  # GADApplicationIdentifier Info.plist key (see Info.plist) or it crashes on launch.
+  pod 'Google-Mobile-Ads-SDK'
+end
+
+post_install do |installer|
+  installer.pods_project.targets.each do |t|
+    t.build_configurations.each do |c|
+      c.build_settings['IPHONEOS_DEPLOYMENT_TARGET'] = '15.0'
+      # Match the app target: ad-hoc sign so embedded frameworks (VLPlaySDK,
+      # FBSDK*, OneSignal*) don't fail installd verification on simulator;
+      # device gets no sign (real signing happens on the app target).
+      c.build_settings['CODE_SIGN_IDENTITY'] = ''
+      c.build_settings['CODE_SIGN_IDENTITY[sdk=iphoneos*]'] = ''
+      c.build_settings['CODE_SIGN_IDENTITY[sdk=iphonesimulator*]'] = '-'
+      c.build_settings['CODE_SIGNING_REQUIRED'] = 'NO'
+      c.build_settings['CODE_SIGNING_ALLOWED'] = 'YES'
+      c.build_settings['CODE_SIGNING_ALLOWED[sdk=iphoneos*]'] = 'NO'
+    end
+  end
+end

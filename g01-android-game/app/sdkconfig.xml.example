@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    sdk_client_id = YOUR_CLIENT_ID
+    sdk_client_secret_key = YOUR_CLIENT_SECRET
+    sdk_appsflyer_dev_key =
+    sdk_google_client_id = YOUR_GOOGLE_CLIENT_ID
+    sdk_api_key = YOUR_API_KEY
+    sdk_demo_mode = false
+</resources>

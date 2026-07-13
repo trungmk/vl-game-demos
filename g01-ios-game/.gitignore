@@ -1,0 +1,14 @@
+# CocoaPods / Xcode build artifacts
+Pods/
+build/
+DerivedData/
+*.xcworkspace/xcuserdata/
+*.xcodeproj/xcuserdata/
+.DS_Store
+
+# Runtime credentials — provisioned from VL Ops / CMS, never commit
+VLPlayDemo2/VLPlaySDK-Info.plist
+VLPlayDemo2/GoogleService-Info.plist
+
+# NOTE: LocalPods/VLPlaySDK/VLPlaySDK.xcframework (binary) IS committed on purpose —
+# it is the consumed artifact, the iOS analog of g01-android-game/app/libs/VLPlaySDK-G01.aar.

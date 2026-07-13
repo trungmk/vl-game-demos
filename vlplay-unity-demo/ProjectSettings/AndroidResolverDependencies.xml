@@ -1,0 +1,47 @@
+<dependencies>
+  <packages>
+    <package>androidx.annotation:annotation:1.7.1</package>
+    <package>androidx.appcompat:appcompat:1.6.1</package>
+    <package>androidx.browser:browser:1.8.0</package>
+    <package>androidx.constraintlayout:constraintlayout:2.1.4</package>
+    <package>androidx.lifecycle:lifecycle-livedata:2.7.0</package>
+    <package>androidx.lifecycle:lifecycle-viewmodel:2.7.0</package>
+    <package>androidx.multidex:multidex:2.0.1</package>
+    <package>androidx.security:security-crypto:1.1.0-alpha06</package>
+    <package>com.android.billingclient:billing:7.0.0</package>
+    <package>com.android.installreferrer:installreferrer:2.2</package>
+    <package>com.appsflyer:af-android-sdk:6.14.0</package>
+    <package>com.daimajia.swipelayout:library:1.2.0</package>
+    <package>com.facebook.android:facebook-android-sdk:16.3.0</package>
+    <package>com.github.skydoves:balloon:1.4.7</package>
+    <package>com.google.android.gms:play-services-ads-identifier:18.0.1</package>
+    <package>com.google.android.gms:play-services-appset:16.0.2</package>
+    <package>com.google.android.gms:play-services-auth:21.0.0</package>
+    <package>com.google.android.material:material:1.11.0</package>
+    <package>com.google.code.gson:gson:2.10.1</package>
+    <package>com.google.firebase:firebase-analytics:21.5.1</package>
+    <package>com.google.guava:guava:33.0.0-android</package>
+    <package>com.karumi:dexter:6.2.3</package>
+    <package>com.onesignal:OneSignal:5.1.10</package>
+    <package>com.squareup.okhttp3:okhttp:4.12.0</package>
+    <package>org.greenrobot:eventbus:3.3.1</package>
+  </packages>
+  <files />
+  <settings>
+    <setting name="androidAbis" value="arm64-v8a" />
+    <setting name="bundleId" value="com.vlplay.demo" />
+    <setting name="explodeAars" value="True" />
+    <setting name="gradleBuildEnabled" value="True" />
+    <setting name="gradlePropertiesTemplateEnabled" value="True" />
+    <setting name="gradleTemplateEnabled" value="True" />
+    <setting name="installAndroidPackages" value="True" />
+    <setting name="localMavenRepoDir" value="Assets/GeneratedLocalRepo" />
+    <setting name="packageDir" value="Assets/Plugins/Android" />
+    <setting name="patchAndroidManifest" value="True" />
+    <setting name="patchMainTemplateGradle" value="True" />
+    <setting name="projectExportEnabled" value="False" />
+    <setting name="useFullCustomMavenRepoPathWhenExport" value="True" />
+    <setting name="useFullCustomMavenRepoPathWhenNotExport" value="False" />
+    <setting name="useJetifier" value="True" />
+  </settings>
+</dependencies>

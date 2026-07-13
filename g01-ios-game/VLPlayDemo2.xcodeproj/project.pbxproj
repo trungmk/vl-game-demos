@@ -1,0 +1,815 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0915EED25243EC913B718239 /* SDKEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2BF17CBFB0E3749CBEE20BE /* SDKEnvironment.swift */; };
+		0FDEDE419CE62C9F939D6D62 /* VLTransactionCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = F11805E23D65D2D81F7B6F17 /* VLTransactionCard.swift */; };
+		1547E900FEFD008D6065EFC7 /* VLStatePill.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95F3079406087F9FCEDD8041 /* VLStatePill.swift */; };
+		21DCD85AA870143A14960428 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30F5A9C1D4F278FACA7D1025 /* ProfileView.swift */; };
+		23B34C5C49FDBC5CEF0877C3 /* PurchaseHistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CACF4910739BFCEB051887DB /* PurchaseHistoryView.swift */; };
+		25F6F88EE364CB28F66E08EA /* VLLoadingOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 227BA5569E6179F1ABBFCDC5 /* VLLoadingOverlay.swift */; };
+		32AB87ADE8F7BA0E16428338 /* VLPlayDemo2App.swift in Sources */ = {isa = PBXBuildFile; fileRef = CADCAABA61F2BE2D0482DE1C /* VLPlayDemo2App.swift */; };
+		36D916E720F4924DA4CBD521 /* StorePackage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AE1A8F4750815E1CB3B8111 /* StorePackage.swift */; };
+		386248ECB18B07DC5591B537 /* VLTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FAE4B98C26C01B8EDA38CF4 /* VLTheme.swift */; };
+		3C00A7C02A07E58B806DDF2F /* AntiAddictionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16766D5529781A433A5FF7A3 /* AntiAddictionView.swift */; };
+		3C400B30983E16B9C1A781E8 /* VLCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFB78B91FF2D344DB8BD726B /* VLCard.swift */; };
+		3F4F03DEEFA544E4AC7F9AB4 /* TopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0F7126A9FD6E453581692E9 /* TopViewController.swift */; };
+		405E6ABA9D469BAE2927E42E /* VLToast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53E1C2C8BEB3AFE55D57B1E4 /* VLToast.swift */; };
+		46F931385163AC64C06E7FAD /* DebugRootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87E194D6B5BB3A7D67BAE3C3 /* DebugRootView.swift */; };
+		471FE5972EF4437159818341 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 19E4B30EFECA62A3BBDADE27 /* Foundation.framework */; };
+		49FF03D74BF2E9B22C2CF3EA /* Pods_VLPlayDemo2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5710CA48990F316C87B289CB /* Pods_VLPlayDemo2.framework */; };
+		4A7C2E9D8F1B34C6D5E0A219 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B5D31A9C4E86F201D3A9B6C /* StoreKit.framework */; };
+		4D833AE61F8296888BB000EC /* UpgradeGuestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EE7E612638919C8EF5C81BC /* UpgradeGuestView.swift */; };
+		616F9DB1C3A3B864C56E3C44 /* RootContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC81CA80322761D36685514D /* RootContainerView.swift */; };
+		62DE3B3B97C70CEE290CC7BD /* VLConfirmModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED97D76F1D781E6CC0828F09 /* VLConfirmModal.swift */; };
+		6B1FED323923E6408106E5BF /* VLProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FF5F45234806A0E7BF48A38 /* VLProgressBar.swift */; };
+		6C1E2CD534E322356D066CC0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4EFC4A56578E880FED3CCC31 /* Assets.xcassets */; };
+		70734C236E41EC28BDA6689B /* APICallResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12E47E22A0E740A351E31119 /* APICallResult.swift */; };
+		77294DD274ED25A3B86683D0 /* AppDelegateAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E8E8653154304655F46ADAF /* AppDelegateAdapter.swift */; };
+		78D917BDCDD3658966F7F12E /* VLPackageCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE5D6D04A896233A876D24C8 /* VLPackageCard.swift */; };
+		88A0700EC9B1CABC435E7117 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C24AFFA9DFE9FCFF0037830C /* GoogleService-Info.plist */; };
+		96BB8CF8DE035853862B3EE1 /* VLTypography.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22EEEC6F546A804981CDD110 /* VLTypography.swift */; };
+		9B8AD18B20A5957DF21A52E5 /* VLGiftcodeInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AAC8EDBCDD83EC3ED984967 /* VLGiftcodeInput.swift */; };
+		A254D481FF709F3CAB8101A7 /* VLActionTile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F5BB94DAC251FC6567DC2DD /* VLActionTile.swift */; };
+		A59829D372FC3B4DAFD2D3EE /* VLButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D02D75DFDF42BACF7B27D36 /* VLButton.swift */; };
+		A723A6CEB2611A36FBBF8B9A /* BindSocialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0198D48C475FEF88655572D1 /* BindSocialView.swift */; };
+		A83A9DE98C46267915274464 /* VLPropertyRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DAC173C572E0155BDCA5D88 /* VLPropertyRow.swift */; };
+		BD26372ADC1B7D4DA580E934 /* VLFooterBanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17519104C50ECF9F11C70F98 /* VLFooterBanner.swift */; };
+		C4A0E7459E242110E738D827 /* VLOTPInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6E307AFB0376EE8628F9B7B /* VLOTPInput.swift */; };
+		C6CC729E8DD42D403BCEF94F /* DeleteAccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D29C14444C60759E9B70F696 /* DeleteAccountView.swift */; };
+		C8F1239CE92D6612B28308ED /* GiftcodeRedeemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CE81D14AAA48AD53CD32EFD /* GiftcodeRedeemView.swift */; };
+		C9D8E4E37B8FD16A60162EE4 /* MainTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1278DCED31831BD3221F82E4 /* MainTabView.swift */; };
+		CECF4A61930F91ADC203B804 /* MainHubView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70B2CCB74D7E6B4AA06730BF /* MainHubView.swift */; };
+		D14E5001BD397B350085FFC8 /* TokenRefreshLogView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8293C5BDB4FE1872F6D1235D /* TokenRefreshLogView.swift */; };
+		D9BB5720FE302B02C60F0190 /* VLPlaySDK-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 57E912C0569CEDE3A8B4CC97 /* VLPlaySDK-Info.plist */; };
+		DC3EE604EE2DB50BBF2A9B18 /* VLTopAppBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85171B9A75CC4D5F8ABE23B8 /* VLTopAppBar.swift */; };
+		DE2A1738F0384758E55D1342 /* VLIconMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37438D15FF481229A5D50326 /* VLIconMap.swift */; };
+		E2BB2E4AC965C2FBC55A1E7A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D02165047455021665795462 /* Preview Assets.xcassets */; };
+		EE00000100000000EE000010 /* RemoteConfigView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE00000200000000EE000010 /* RemoteConfigView.swift */; };
+		EE00000300000000EE000010 /* AppsFlyerEventsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE00000400000000EE000010 /* AppsFlyerEventsView.swift */; };
+		EE00000300000000EE000011 /* AdsTestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE00000400000000EE000011 /* AdsTestView.swift */; };
+		EE00000300000000EE000020 /* IdentityVerificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE00000400000000EE000020 /* IdentityVerificationView.swift */; };
+		EE00000500000000EE000030 /* AntiAddictionTimerService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE00000600000000EE000030 /* AntiAddictionTimerService.swift */; };
+		EE00000600000000EE000040 /* AntiAddictionClock.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE00000700000000EE000040 /* AntiAddictionClock.swift */; };
+		EFDD2CA2F60DE2175C4895DC /* ShopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D544E03C42FF3D71A6C3E50C /* ShopView.swift */; };
+		F544A55B6088A1BB61DB4A91 /* VLPhoneInputRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 654994F85CED07E818BEAEB7 /* VLPhoneInputRow.swift */; };
+		FE70FA58A2F3BABF4449567C /* VLDebugBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5FA6097E6761CE08C4CE53F /* VLDebugBox.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		0198D48C475FEF88655572D1 /* BindSocialView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = BindSocialView.swift; sourceTree = "<group>"; };
+		0AAC8EDBCDD83EC3ED984967 /* VLGiftcodeInput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = VLGiftcodeInput.swift; sourceTree = "<group>"; };
+		0CE81D14AAA48AD53CD32EFD /* GiftcodeRedeemView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = GiftcodeRedeemView.swift; sourceTree = "<group>"; };
+		1278DCED31831BD3221F82E4 /* MainTabView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MainTabView.swift; sourceTree = "<group>"; };
+		12E47E22A0E740A351E31119 /* APICallResult.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = APICallResult.swift; sourceTree = "<group>"; };
+		16766D5529781A433A5FF7A3 /* AntiAddictionView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AntiAddictionView.swift; sourceTree = "<group>"; };
+		17519104C50ECF9F11C70F98 /* VLFooterBanner.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = VLFooterBanner.swift; sourceTree = "<group>"; };
+		19E4B30EFECA62A3BBDADE27 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS18.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		1F5BB94DAC251FC6567DC2DD /* VLActionTile.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = VLActionTile.swift; sourceTree = "<group>"; };
+		227BA5569E6179F1ABBFCDC5 /* VLLoadingOverlay.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = VLLoadingOverlay.swift; sourceTree = "<group>"; };
+		22EEEC6F546A804981CDD110 /* VLTypography.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = VLTypography.swift; sourceTree = "<group>"; };
+		30F5A9C1D4F278FACA7D1025 /* ProfileView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		37438D15FF481229A5D50326 /* VLIconMap.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = VLIconMap.swift; sourceTree = "<group>"; };
+		4EFC4A56578E880FED3CCC31 /* Assets.xcassets */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		51DF7CE0FF54EA2701107D83 /* VLPlayDemo2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VLPlayDemo2.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		53E1C2C8BEB3AFE55D57B1E4 /* VLToast.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = VLToast.swift; sourceTree = "<group>"; };
+		5710CA48990F316C87B289CB /* Pods_VLPlayDemo2.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VLPlayDemo2.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		57E912C0569CEDE3A8B4CC97 /* VLPlaySDK-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "VLPlaySDK-Info.plist"; sourceTree = "<group>"; };
+		65192B98D1C5B4CD12A9C994 /* Pods-VLPlayDemo2.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VLPlayDemo2.debug.xcconfig"; path = "Target Support Files/Pods-VLPlayDemo2/Pods-VLPlayDemo2.debug.xcconfig"; sourceTree = "<group>"; };
+		654994F85CED07E818BEAEB7 /* VLPhoneInputRow.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = VLPhoneInputRow.swift; sourceTree = "<group>"; };
+		6EE7E612638919C8EF5C81BC /* UpgradeGuestView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = UpgradeGuestView.swift; sourceTree = "<group>"; };
+		70B2CCB74D7E6B4AA06730BF /* MainHubView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MainHubView.swift; sourceTree = "<group>"; };
+		7B5D31A9C4E86F201D3A9B6C /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		7D02D75DFDF42BACF7B27D36 /* VLButton.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = VLButton.swift; sourceTree = "<group>"; };
+		7DAC173C572E0155BDCA5D88 /* VLPropertyRow.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = VLPropertyRow.swift; sourceTree = "<group>"; };
+		8293C5BDB4FE1872F6D1235D /* TokenRefreshLogView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = TokenRefreshLogView.swift; sourceTree = "<group>"; };
+		85171B9A75CC4D5F8ABE23B8 /* VLTopAppBar.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = VLTopAppBar.swift; sourceTree = "<group>"; };
+		87E194D6B5BB3A7D67BAE3C3 /* DebugRootView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = DebugRootView.swift; sourceTree = "<group>"; };
+		8AE1A8F4750815E1CB3B8111 /* StorePackage.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = StorePackage.swift; sourceTree = "<group>"; };
+		8E8E8653154304655F46ADAF /* AppDelegateAdapter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AppDelegateAdapter.swift; sourceTree = "<group>"; };
+		8FAE4B98C26C01B8EDA38CF4 /* VLTheme.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = VLTheme.swift; sourceTree = "<group>"; };
+		95F3079406087F9FCEDD8041 /* VLStatePill.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = VLStatePill.swift; sourceTree = "<group>"; };
+		9B8162754FF9B34F4FEB71AB /* VLPlayDemo2-Bridging-Header.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "VLPlayDemo2-Bridging-Header.h"; sourceTree = "<group>"; };
+		9D7221A871167B3E75BDC34A /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9FF5F45234806A0E7BF48A38 /* VLProgressBar.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = VLProgressBar.swift; sourceTree = "<group>"; };
+		A0F7126A9FD6E453581692E9 /* TopViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = TopViewController.swift; sourceTree = "<group>"; };
+		B74A89FDF8DF969793D37CA1 /* Pods-VLPlayDemo2.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VLPlayDemo2.release.xcconfig"; path = "Target Support Files/Pods-VLPlayDemo2/Pods-VLPlayDemo2.release.xcconfig"; sourceTree = "<group>"; };
+		BE5D6D04A896233A876D24C8 /* VLPackageCard.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = VLPackageCard.swift; sourceTree = "<group>"; };
+		C24AFFA9DFE9FCFF0037830C /* GoogleService-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		CACF4910739BFCEB051887DB /* PurchaseHistoryView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PurchaseHistoryView.swift; sourceTree = "<group>"; };
+		CADCAABA61F2BE2D0482DE1C /* VLPlayDemo2App.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = VLPlayDemo2App.swift; sourceTree = "<group>"; };
+		CFB78B91FF2D344DB8BD726B /* VLCard.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = VLCard.swift; sourceTree = "<group>"; };
+		D02165047455021665795462 /* Preview Assets.xcassets */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		D29C14444C60759E9B70F696 /* DeleteAccountView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = DeleteAccountView.swift; sourceTree = "<group>"; };
+		D2BF17CBFB0E3749CBEE20BE /* SDKEnvironment.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SDKEnvironment.swift; sourceTree = "<group>"; };
+		D544E03C42FF3D71A6C3E50C /* ShopView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ShopView.swift; sourceTree = "<group>"; };
+		D5FA6097E6761CE08C4CE53F /* VLDebugBox.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = VLDebugBox.swift; sourceTree = "<group>"; };
+		D6E307AFB0376EE8628F9B7B /* VLOTPInput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = VLOTPInput.swift; sourceTree = "<group>"; };
+		EC81CA80322761D36685514D /* RootContainerView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = RootContainerView.swift; sourceTree = "<group>"; };
+		ED97D76F1D781E6CC0828F09 /* VLConfirmModal.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = VLConfirmModal.swift; sourceTree = "<group>"; };
+		EE00000200000000EE000010 /* RemoteConfigView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = RemoteConfigView.swift; sourceTree = "<group>"; };
+		EE00000400000000EE000010 /* AppsFlyerEventsView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AppsFlyerEventsView.swift; sourceTree = "<group>"; };
+		EE00000400000000EE000011 /* AdsTestView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AdsTestView.swift; sourceTree = "<group>"; };
+		EE00000400000000EE000020 /* IdentityVerificationView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = IdentityVerificationView.swift; sourceTree = "<group>"; };
+		EE00000600000000EE000030 /* AntiAddictionTimerService.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AntiAddictionTimerService.swift; sourceTree = "<group>"; };
+		EE00000700000000EE000040 /* AntiAddictionClock.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AntiAddictionClock.swift; sourceTree = "<group>"; };
+		F11805E23D65D2D81F7B6F17 /* VLTransactionCard.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = VLTransactionCard.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		1EDC1116ECEF0CBEF1A57549 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4A7C2E9D8F1B34C6D5E0A219 /* StoreKit.framework in Frameworks */,
+				471FE5972EF4437159818341 /* Foundation.framework in Frameworks */,
+				49FF03D74BF2E9B22C2CF3EA /* Pods_VLPlayDemo2.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		1B57E1B7BF23125D380F05FE /* VLPlayDemo2 */ = {
+			isa = PBXGroup;
+			children = (
+				CADCAABA61F2BE2D0482DE1C /* VLPlayDemo2App.swift */,
+				9B8162754FF9B34F4FEB71AB /* VLPlayDemo2-Bridging-Header.h */,
+				4EFC4A56578E880FED3CCC31 /* Assets.xcassets */,
+				D65B1A8D81455B024178289A /* Preview Content */,
+				9D7221A871167B3E75BDC34A /* Info.plist */,
+				8E8E8653154304655F46ADAF /* AppDelegateAdapter.swift */,
+				D2BF17CBFB0E3749CBEE20BE /* SDKEnvironment.swift */,
+				57E912C0569CEDE3A8B4CC97 /* VLPlaySDK-Info.plist */,
+				C24AFFA9DFE9FCFF0037830C /* GoogleService-Info.plist */,
+				F738990EDB6872CB9FBC11AA /* Models */,
+				B18109F0E1CCEAABC4978458 /* Views */,
+				A0F7126A9FD6E453581692E9 /* TopViewController.swift */,
+				53A69FB6A31FA3300FE3F09D /* Design */,
+				EC81CA80322761D36685514D /* RootContainerView.swift */,
+			);
+			path = VLPlayDemo2;
+			sourceTree = "<group>";
+		};
+		2EDD366DD3D8E64772C04C91 /* Payment */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Payment;
+			sourceTree = "<group>";
+		};
+		53A69FB6A31FA3300FE3F09D /* Design */ = {
+			isa = PBXGroup;
+			children = (
+				8FAE4B98C26C01B8EDA38CF4 /* VLTheme.swift */,
+				7D02D75DFDF42BACF7B27D36 /* VLButton.swift */,
+				CFB78B91FF2D344DB8BD726B /* VLCard.swift */,
+				53E1C2C8BEB3AFE55D57B1E4 /* VLToast.swift */,
+				22EEEC6F546A804981CDD110 /* VLTypography.swift */,
+				37438D15FF481229A5D50326 /* VLIconMap.swift */,
+				95F3079406087F9FCEDD8041 /* VLStatePill.swift */,
+				1F5BB94DAC251FC6567DC2DD /* VLActionTile.swift */,
+				85171B9A75CC4D5F8ABE23B8 /* VLTopAppBar.swift */,
+				227BA5569E6179F1ABBFCDC5 /* VLLoadingOverlay.swift */,
+				ED97D76F1D781E6CC0828F09 /* VLConfirmModal.swift */,
+				D5FA6097E6761CE08C4CE53F /* VLDebugBox.swift */,
+				7DAC173C572E0155BDCA5D88 /* VLPropertyRow.swift */,
+				D6E307AFB0376EE8628F9B7B /* VLOTPInput.swift */,
+				654994F85CED07E818BEAEB7 /* VLPhoneInputRow.swift */,
+				0AAC8EDBCDD83EC3ED984967 /* VLGiftcodeInput.swift */,
+				BE5D6D04A896233A876D24C8 /* VLPackageCard.swift */,
+				F11805E23D65D2D81F7B6F17 /* VLTransactionCard.swift */,
+				9FF5F45234806A0E7BF48A38 /* VLProgressBar.swift */,
+				EE00000700000000EE000040 /* AntiAddictionClock.swift */,
+				17519104C50ECF9F11C70F98 /* VLFooterBanner.swift */,
+			);
+			path = Design;
+			sourceTree = "<group>";
+		};
+		58379CBCE52314EC8B14D299 /* Identity */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Identity;
+			sourceTree = "<group>";
+		};
+		594F8A6C65ACADDA4B1C48F2 = {
+			isa = PBXGroup;
+			children = (
+				647D2CFBFD0DE6157AE2032F /* Products */,
+				B3F2E1274CC46156BC54A6DF /* Frameworks */,
+				1B57E1B7BF23125D380F05FE /* VLPlayDemo2 */,
+				D155BC5BD7B8F0CB223DEC2E /* Pods */,
+			);
+			sourceTree = "<group>";
+		};
+		610DACB45962824DE445DA7A /* Logs */ = {
+			isa = PBXGroup;
+			children = (
+				D544E03C42FF3D71A6C3E50C /* ShopView.swift */,
+				CACF4910739BFCEB051887DB /* PurchaseHistoryView.swift */,
+			);
+			path = Logs;
+			sourceTree = "<group>";
+		};
+		647D2CFBFD0DE6157AE2032F /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				51DF7CE0FF54EA2701107D83 /* VLPlayDemo2.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		71056076A52F13C84F2DA668 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				1278DCED31831BD3221F82E4 /* MainTabView.swift */,
+				70B2CCB74D7E6B4AA06730BF /* MainHubView.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		9DF1F53EB78CBA28F3C036E7 /* Engagement */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Engagement;
+			sourceTree = "<group>";
+		};
+		A36792DEB1CE61B9B9425F26 /* Rewards */ = {
+			isa = PBXGroup;
+			children = (
+				0CE81D14AAA48AD53CD32EFD /* GiftcodeRedeemView.swift */,
+			);
+			path = Rewards;
+			sourceTree = "<group>";
+		};
+		B18109F0E1CCEAABC4978458 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				71056076A52F13C84F2DA668 /* Home */,
+				C49014B0DCC2853D31A89161 /* Account */,
+				2EDD366DD3D8E64772C04C91 /* Payment */,
+				58379CBCE52314EC8B14D299 /* Identity */,
+				A36792DEB1CE61B9B9425F26 /* Rewards */,
+				9DF1F53EB78CBA28F3C036E7 /* Engagement */,
+				B75045AC05A80FA7CD64E0AD /* AntiAddiction */,
+				EDC4D8F100352B0A91D57C83 /* Debug */,
+				F1FD0D2BD33D94B9D9F8E1A7 /* Auth */,
+				610DACB45962824DE445DA7A /* Logs */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		B3F2E1274CC46156BC54A6DF /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B9444C0C0A562CFC4F3F784B /* iOS */,
+				5710CA48990F316C87B289CB /* Pods_VLPlayDemo2.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		B75045AC05A80FA7CD64E0AD /* AntiAddiction */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = AntiAddiction;
+			sourceTree = "<group>";
+		};
+		B9444C0C0A562CFC4F3F784B /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				7B5D31A9C4E86F201D3A9B6C /* StoreKit.framework */,
+				19E4B30EFECA62A3BBDADE27 /* Foundation.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+		C49014B0DCC2853D31A89161 /* Account */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Account;
+			sourceTree = "<group>";
+		};
+		D155BC5BD7B8F0CB223DEC2E /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				B74A89FDF8DF969793D37CA1 /* Pods-VLPlayDemo2.release.xcconfig */,
+				65192B98D1C5B4CD12A9C994 /* Pods-VLPlayDemo2.debug.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		D65B1A8D81455B024178289A /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				D02165047455021665795462 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		EDC4D8F100352B0A91D57C83 /* Debug */ = {
+			isa = PBXGroup;
+			children = (
+				16766D5529781A433A5FF7A3 /* AntiAddictionView.swift */,
+				8293C5BDB4FE1872F6D1235D /* TokenRefreshLogView.swift */,
+				87E194D6B5BB3A7D67BAE3C3 /* DebugRootView.swift */,
+				EE00000200000000EE000010 /* RemoteConfigView.swift */,
+				EE00000400000000EE000010 /* AppsFlyerEventsView.swift */,
+				EE00000400000000EE000011 /* AdsTestView.swift */,
+			);
+			path = Debug;
+			sourceTree = "<group>";
+		};
+		F1FD0D2BD33D94B9D9F8E1A7 /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				30F5A9C1D4F278FACA7D1025 /* ProfileView.swift */,
+				0198D48C475FEF88655572D1 /* BindSocialView.swift */,
+				6EE7E612638919C8EF5C81BC /* UpgradeGuestView.swift */,
+				EE00000400000000EE000020 /* IdentityVerificationView.swift */,
+				D29C14444C60759E9B70F696 /* DeleteAccountView.swift */,
+			);
+			path = Auth;
+			sourceTree = "<group>";
+		};
+		F738990EDB6872CB9FBC11AA /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				12E47E22A0E740A351E31119 /* APICallResult.swift */,
+				8AE1A8F4750815E1CB3B8111 /* StorePackage.swift */,
+				EE00000600000000EE000030 /* AntiAddictionTimerService.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		FE8A78897B27568B72A92DAA /* VLPlayDemo2 */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C66E9894543AD9D283DF9440 /* Build configuration list for PBXNativeTarget "VLPlayDemo2" */;
+			buildPhases = (
+				CD374F4FB185FD932675228C /* [CP] Check Pods Manifest.lock */,
+				37078E495AFD6F2ED314C22E /* Sources */,
+				1EDC1116ECEF0CBEF1A57549 /* Frameworks */,
+				944D0E934EA16C084BC4C9CA /* Resources */,
+				8840A463112DE1A721717525 /* [CP] Embed Pods Frameworks */,
+				D102A6F9467B1496E066783A /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = VLPlayDemo2;
+			productName = VLPlayDemo2;
+			productReference = 51DF7CE0FF54EA2701107D83 /* VLPlayDemo2.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		36C09AF4292F6BF4743D9003 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1600;
+				LastUpgradeCheck = 1600;
+				TargetAttributes = {
+					FE8A78897B27568B72A92DAA = {
+						DevelopmentTeam = WV33V9QCV6;
+						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.InAppPurchase = {
+								enabled = 1;
+							};
+						};
+					};
+				};
+			};
+			buildConfigurationList = C7427FA243DF78B20B71DD65 /* Build configuration list for PBXProject "VLPlayDemo2" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 594F8A6C65ACADDA4B1C48F2;
+			productRefGroup = 647D2CFBFD0DE6157AE2032F /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				FE8A78897B27568B72A92DAA /* VLPlayDemo2 */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		944D0E934EA16C084BC4C9CA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6C1E2CD534E322356D066CC0 /* Assets.xcassets in Resources */,
+				E2BB2E4AC965C2FBC55A1E7A /* Preview Assets.xcassets in Resources */,
+				D9BB5720FE302B02C60F0190 /* VLPlaySDK-Info.plist in Resources */,
+				88A0700EC9B1CABC435E7117 /* GoogleService-Info.plist in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		8840A463112DE1A721717525 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-VLPlayDemo2/Pods-VLPlayDemo2-frameworks.sh",
+				"${PODS_XCFRAMEWORKS_BUILD_DIR}/FBAEMKit/FBAEMKit.framework/FBAEMKit",
+				"${PODS_XCFRAMEWORKS_BUILD_DIR}/FBSDKCoreKit/FBSDKCoreKit.framework/FBSDKCoreKit",
+				"${PODS_XCFRAMEWORKS_BUILD_DIR}/FBSDKCoreKit_Basics/FBSDKCoreKit_Basics.framework/FBSDKCoreKit_Basics",
+				"${PODS_XCFRAMEWORKS_BUILD_DIR}/FBSDKLoginKit/FBSDKLoginKit.framework/FBSDKLoginKit",
+				"${PODS_XCFRAMEWORKS_BUILD_DIR}/FBSDKShareKit/FBSDKShareKit.framework/FBSDKShareKit",
+				"${PODS_XCFRAMEWORKS_BUILD_DIR}/OneSignalXCFramework/OneSignal/OneSignalFramework.framework/OneSignalFramework",
+				"${PODS_XCFRAMEWORKS_BUILD_DIR}/OneSignalXCFramework/OneSignalCore/OneSignalCore.framework/OneSignalCore",
+				"${PODS_XCFRAMEWORKS_BUILD_DIR}/OneSignalXCFramework/OneSignalExtension/OneSignalExtension.framework/OneSignalExtension",
+				"${PODS_XCFRAMEWORKS_BUILD_DIR}/OneSignalXCFramework/OneSignalInAppMessages/OneSignalInAppMessages.framework/OneSignalInAppMessages",
+				"${PODS_XCFRAMEWORKS_BUILD_DIR}/OneSignalXCFramework/OneSignalLiveActivities/OneSignalLiveActivities.framework/OneSignalLiveActivities",
+				"${PODS_XCFRAMEWORKS_BUILD_DIR}/OneSignalXCFramework/OneSignalLocation/OneSignalLocation.framework/OneSignalLocation",
+				"${PODS_XCFRAMEWORKS_BUILD_DIR}/OneSignalXCFramework/OneSignalNotifications/OneSignalNotifications.framework/OneSignalNotifications",
+				"${PODS_XCFRAMEWORKS_BUILD_DIR}/OneSignalXCFramework/OneSignalOSCore/OneSignalOSCore.framework/OneSignalOSCore",
+				"${PODS_XCFRAMEWORKS_BUILD_DIR}/OneSignalXCFramework/OneSignalOutcomes/OneSignalOutcomes.framework/OneSignalOutcomes",
+				"${PODS_XCFRAMEWORKS_BUILD_DIR}/OneSignalXCFramework/OneSignalUser/OneSignalUser.framework/OneSignalUser",
+				"${PODS_XCFRAMEWORKS_BUILD_DIR}/VLPlaySDK/VLPlaySDK.framework/VLPlaySDK",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBAEMKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKCoreKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKCoreKit_Basics.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKLoginKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKShareKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/OneSignalFramework.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/OneSignalCore.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/OneSignalExtension.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/OneSignalInAppMessages.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/OneSignalLiveActivities.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/OneSignalLocation.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/OneSignalNotifications.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/OneSignalOSCore.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/OneSignalOutcomes.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/OneSignalUser.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/VLPlaySDK.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-VLPlayDemo2/Pods-VLPlayDemo2-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CD374F4FB185FD932675228C /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-VLPlayDemo2-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D102A6F9467B1496E066783A /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-VLPlayDemo2/Pods-VLPlayDemo2-resources.sh",
+				"${PODS_CONFIGURATION_BUILD_DIR}/Google-Mobile-Ads-SDK/GoogleMobileAdsResources.bundle",
+				"${PODS_CONFIGURATION_BUILD_DIR}/GoogleUserMessagingPlatform/UserMessagingPlatformResources.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleMobileAdsResources.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/UserMessagingPlatformResources.bundle",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-VLPlayDemo2/Pods-VLPlayDemo2-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		37078E495AFD6F2ED314C22E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				32AB87ADE8F7BA0E16428338 /* VLPlayDemo2App.swift in Sources */,
+				77294DD274ED25A3B86683D0 /* AppDelegateAdapter.swift in Sources */,
+				0915EED25243EC913B718239 /* SDKEnvironment.swift in Sources */,
+				3F4F03DEEFA544E4AC7F9AB4 /* TopViewController.swift in Sources */,
+				70734C236E41EC28BDA6689B /* APICallResult.swift in Sources */,
+				36D916E720F4924DA4CBD521 /* StorePackage.swift in Sources */,
+				386248ECB18B07DC5591B537 /* VLTheme.swift in Sources */,
+				A59829D372FC3B4DAFD2D3EE /* VLButton.swift in Sources */,
+				3C400B30983E16B9C1A781E8 /* VLCard.swift in Sources */,
+				405E6ABA9D469BAE2927E42E /* VLToast.swift in Sources */,
+				616F9DB1C3A3B864C56E3C44 /* RootContainerView.swift in Sources */,
+				96BB8CF8DE035853862B3EE1 /* VLTypography.swift in Sources */,
+				DE2A1738F0384758E55D1342 /* VLIconMap.swift in Sources */,
+				1547E900FEFD008D6065EFC7 /* VLStatePill.swift in Sources */,
+				A254D481FF709F3CAB8101A7 /* VLActionTile.swift in Sources */,
+				DC3EE604EE2DB50BBF2A9B18 /* VLTopAppBar.swift in Sources */,
+				25F6F88EE364CB28F66E08EA /* VLLoadingOverlay.swift in Sources */,
+				62DE3B3B97C70CEE290CC7BD /* VLConfirmModal.swift in Sources */,
+				FE70FA58A2F3BABF4449567C /* VLDebugBox.swift in Sources */,
+				A83A9DE98C46267915274464 /* VLPropertyRow.swift in Sources */,
+				C4A0E7459E242110E738D827 /* VLOTPInput.swift in Sources */,
+				F544A55B6088A1BB61DB4A91 /* VLPhoneInputRow.swift in Sources */,
+				9B8AD18B20A5957DF21A52E5 /* VLGiftcodeInput.swift in Sources */,
+				78D917BDCDD3658966F7F12E /* VLPackageCard.swift in Sources */,
+				6B1FED323923E6408106E5BF /* VLProgressBar.swift in Sources */,
+				EE00000600000000EE000040 /* AntiAddictionClock.swift in Sources */,
+				BD26372ADC1B7D4DA580E934 /* VLFooterBanner.swift in Sources */,
+				C9D8E4E37B8FD16A60162EE4 /* MainTabView.swift in Sources */,
+				CECF4A61930F91ADC203B804 /* MainHubView.swift in Sources */,
+				21DCD85AA870143A14960428 /* ProfileView.swift in Sources */,
+				A723A6CEB2611A36FBBF8B9A /* BindSocialView.swift in Sources */,
+				4D833AE61F8296888BB000EC /* UpgradeGuestView.swift in Sources */,
+				EE00000300000000EE000020 /* IdentityVerificationView.swift in Sources */,
+				EE00000500000000EE000030 /* AntiAddictionTimerService.swift in Sources */,
+				C6CC729E8DD42D403BCEF94F /* DeleteAccountView.swift in Sources */,
+				EFDD2CA2F60DE2175C4895DC /* ShopView.swift in Sources */,
+				23B34C5C49FDBC5CEF0877C3 /* PurchaseHistoryView.swift in Sources */,
+				0FDEDE419CE62C9F939D6D62 /* VLTransactionCard.swift in Sources */,
+				C8F1239CE92D6612B28308ED /* GiftcodeRedeemView.swift in Sources */,
+				3C00A7C02A07E58B806DDF2F /* AntiAddictionView.swift in Sources */,
+				D14E5001BD397B350085FFC8 /* TokenRefreshLogView.swift in Sources */,
+				46F931385163AC64C06E7FAD /* DebugRootView.swift in Sources */,
+				EE00000100000000EE000010 /* RemoteConfigView.swift in Sources */,
+				EE00000300000000EE000010 /* AppsFlyerEventsView.swift in Sources */,
+				EE00000300000000EE000011 /* AdsTestView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		04BFFFE0188C11D1E4C72726 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = B74A89FDF8DF969793D37CA1 /* Pods-VLPlayDemo2.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_ENTITLEMENTS = VLPlayDemo2/VLPlayDemo2.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"VLPlayDemo2/Preview Content\"";
+				DEVELOPMENT_TEAM = WV33V9QCV6;
+				ENABLE_PREVIEWS = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = VLPlayDemo2/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "VL Play Demo";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.games";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.vlplay.demo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SDKROOT = iphoneos;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "VLPlayDemo2/VLPlayDemo2-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		5A168C8A8223CE326070BA11 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Manual;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = "";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		61DA96E68D3EAE74F1A7A073 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Manual;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = "";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 5.0;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		955DFB7E291410208B07B088 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 65192B98D1C5B4CD12A9C994 /* Pods-VLPlayDemo2.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_ENTITLEMENTS = VLPlayDemo2/VLPlayDemo2.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"VLPlayDemo2/Preview Content\"";
+				DEVELOPMENT_TEAM = WV33V9QCV6;
+				ENABLE_PREVIEWS = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = VLPlayDemo2/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "VL Play Demo";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.games";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.vlplay.demo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SDKROOT = iphoneos;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "VLPlayDemo2/VLPlayDemo2-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		C66E9894543AD9D283DF9440 /* Build configuration list for PBXNativeTarget "VLPlayDemo2" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				04BFFFE0188C11D1E4C72726 /* Release */,
+				955DFB7E291410208B07B088 /* Debug */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C7427FA243DF78B20B71DD65 /* Build configuration list for PBXProject "VLPlayDemo2" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5A168C8A8223CE326070BA11 /* Debug */,
+				61DA96E68D3EAE74F1A7A073 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 36C09AF4292F6BF4743D9003 /* Project object */;
+}

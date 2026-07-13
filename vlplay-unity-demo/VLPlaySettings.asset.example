@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07c016db3bb94b64a9d88a9ffc0e608a, type: 3}
+  m_Name: VLPlaySettings
+  m_EditorClassIdentifier:
+  useStaging: 1
+  clientId: YOUR_CLIENT_ID
+  apiKey: YOUR_API_KEY
+  clientSecret: YOUR_CLIENT_SECRET
+  iosGoogleServicePlistPath: GoogleService-Info.plist
+  fbAppId:
+  androidGoogleServicesJsonPath: google-services.json
+  adsEnabled: 0
+  verboseLogging: 1

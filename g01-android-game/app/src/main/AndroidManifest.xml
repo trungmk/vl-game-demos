@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <!-- Android 13+ runtime notification permission (NOTIF-NAT-02). Older OS auto-grants. -->
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+
+    <application
+        android:name="sdk.vlplay.vn.sample.MainApplication"
+        android:allowBackup="false"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme"
+        android:usesCleartextTraffic="false"
+        android:networkSecurityConfig="@xml/network_security_config"
+        tools:replace="android:allowBackup">
+
+        <!-- IAA AdMob: REQUIRED or Google Mobile Ads crashes on launch. Public TEST
+             App ID; a real game replaces it with its own AdMob app id. -->
+        <meta-data
+            android:name="com.google.android.gms.ads.APPLICATION_ID"
+            android:value="ca-app-pub-3940256099942544~3347511713" />
+
+        <!-- TEMP: screenOrientation="fullSensor" enabled for layout testing.
+             Revert to "landscape" (LANDSCAPE-REDESIGN A0 game-host lock) trên 5 activities trước release. -->
+        <activity
+            android:name="sdk.vlplay.vn.sample.ComposeMainActivity"
+            android:exported="true"
+            android:configChanges="mcc|mnc|locale|touchscreen|keyboard|keyboardHidden|navigation|orientation|screenLayout|uiMode|screenSize|smallestScreenSize|fontScale|layoutDirection|density"
+            android:launchMode="singleTask"
+            android:screenOrientation="fullSensor"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <!-- Legacy XML demo entry — non-launcher fallback during PARITY-A5 migration. -->
+        <activity
+            android:name="MainActivity"
+            android:exported="false"
+            android:configChanges="mcc|mnc|locale|touchscreen|keyboard|keyboardHidden|navigation|orientation|screenLayout|uiMode|screenSize|smallestScreenSize|fontScale|layoutDirection|density"
+            android:hardwareAccelerated="false"
+            android:launchMode="singleTask"
+            android:screenOrientation="fullSensor" />
+
+        <activity
+            android:name="sdk.vlplay.vn.activity.LoginActivity"
+            android:launchMode="singleTop"
+            android:theme="@style/AppTheme.FullScreenDialog"
+            android:configChanges="keyboard|keyboardHidden|screenLayout"
+            android:screenOrientation="fullSensor"
+            android:windowSoftInputMode="stateAlwaysHidden"/>
+
+        <activity
+            android:name="sdk.vlplay.vn.activity.AccountInfoActivity"
+            android:configChanges="orientation|keyboard|keyboardHidden|screenLayout|screenSize"
+            android:screenOrientation="fullSensor"
+            android:theme="@style/AppTheme.FullScreenAccount"
+            android:windowSoftInputMode="stateAlwaysHidden" />
+
+        <activity
+            android:name="sdk.vlplay.vn.payment.Payment"
+            android:configChanges="keyboard|keyboardHidden|screenLayout|screenSize|orientation"
+            android:label="@string/app_name"
+            android:screenOrientation="fullSensor"
+            android:theme="@style/CustomDialog"
+            android:windowSoftInputMode="stateAlwaysHidden"/>
+
+    </application>
+
+</manifest>

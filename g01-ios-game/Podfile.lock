@@ -1,0 +1,99 @@
+PODS:
+  - FBAEMKit (18.0.3):
+    - FBSDKCoreKit_Basics (= 18.0.3)
+  - FBSDKCoreKit (18.0.3):
+    - FBAEMKit (= 18.0.3)
+    - FBSDKCoreKit_Basics (= 18.0.3)
+  - FBSDKCoreKit_Basics (18.0.3)
+  - FBSDKLoginKit (18.0.3):
+    - FBSDKCoreKit (= 18.0.3)
+  - FBSDKShareKit (18.0.3):
+    - FBSDKCoreKit (= 18.0.3)
+  - Google-Mobile-Ads-SDK (13.6.0):
+    - GoogleUserMessagingPlatform (>= 1.1)
+  - GoogleUserMessagingPlatform (3.1.0)
+  - OneSignalXCFramework (5.5.1):
+    - OneSignalXCFramework/OneSignalComplete (= 5.5.1)
+  - OneSignalXCFramework/OneSignal (5.5.1):
+    - OneSignalXCFramework/OneSignalCore
+    - OneSignalXCFramework/OneSignalExtension
+    - OneSignalXCFramework/OneSignalLiveActivities
+    - OneSignalXCFramework/OneSignalNotifications
+    - OneSignalXCFramework/OneSignalOSCore
+    - OneSignalXCFramework/OneSignalOutcomes
+    - OneSignalXCFramework/OneSignalUser
+  - OneSignalXCFramework/OneSignalComplete (5.5.1):
+    - OneSignalXCFramework/OneSignal
+    - OneSignalXCFramework/OneSignalInAppMessages
+    - OneSignalXCFramework/OneSignalLocation
+  - OneSignalXCFramework/OneSignalCore (5.5.1)
+  - OneSignalXCFramework/OneSignalExtension (5.5.1):
+    - OneSignalXCFramework/OneSignalCore
+    - OneSignalXCFramework/OneSignalOutcomes
+  - OneSignalXCFramework/OneSignalInAppMessages (5.5.1):
+    - OneSignalXCFramework/OneSignalCore
+    - OneSignalXCFramework/OneSignalNotifications
+    - OneSignalXCFramework/OneSignalOSCore
+    - OneSignalXCFramework/OneSignalOutcomes
+    - OneSignalXCFramework/OneSignalUser
+  - OneSignalXCFramework/OneSignalLiveActivities (5.5.1):
+    - OneSignalXCFramework/OneSignalCore
+    - OneSignalXCFramework/OneSignalOSCore
+    - OneSignalXCFramework/OneSignalUser
+  - OneSignalXCFramework/OneSignalLocation (5.5.1):
+    - OneSignalXCFramework/OneSignalCore
+    - OneSignalXCFramework/OneSignalNotifications
+    - OneSignalXCFramework/OneSignalOSCore
+    - OneSignalXCFramework/OneSignalUser
+  - OneSignalXCFramework/OneSignalNotifications (5.5.1):
+    - OneSignalXCFramework/OneSignalCore
+    - OneSignalXCFramework/OneSignalExtension
+    - OneSignalXCFramework/OneSignalOutcomes
+  - OneSignalXCFramework/OneSignalOSCore (5.5.1):
+    - OneSignalXCFramework/OneSignalCore
+  - OneSignalXCFramework/OneSignalOutcomes (5.5.1):
+    - OneSignalXCFramework/OneSignalCore
+  - OneSignalXCFramework/OneSignalUser (5.5.1):
+    - OneSignalXCFramework/OneSignalCore
+    - OneSignalXCFramework/OneSignalNotifications
+    - OneSignalXCFramework/OneSignalOSCore
+    - OneSignalXCFramework/OneSignalOutcomes
+  - VLPlaySDK (1.1.7):
+    - FBSDKCoreKit (~> 18.0)
+    - FBSDKLoginKit (~> 18.0)
+    - FBSDKShareKit (~> 18.0)
+    - OneSignalXCFramework (= 5.5.1)
+
+DEPENDENCIES:
+  - Google-Mobile-Ads-SDK
+  - VLPlaySDK (from `LocalPods/VLPlaySDK`)
+
+SPEC REPOS:
+  trunk:
+    - FBAEMKit
+    - FBSDKCoreKit
+    - FBSDKCoreKit_Basics
+    - FBSDKLoginKit
+    - FBSDKShareKit
+    - Google-Mobile-Ads-SDK
+    - GoogleUserMessagingPlatform
+    - OneSignalXCFramework
+
+EXTERNAL SOURCES:
+  VLPlaySDK:
+    :path: LocalPods/VLPlaySDK
+
+SPEC CHECKSUMS:
+  FBAEMKit: 2a6b529993713c185b02bc36f8c91129bf78dfb0
+  FBSDKCoreKit: 65d7f7a7d6fcc3aa6eb6e093ec737a4184fc6049
+  FBSDKCoreKit_Basics: 7bc9d8fde8f70985fba2ed7c1d07e319f969a991
+  FBSDKLoginKit: 66d20fcb7afcafc0c420477662f96845cd1a5179
+  FBSDKShareKit: 837e908192dd6dc8f34aea673e62bb9570f75a99
+  Google-Mobile-Ads-SDK: 6e501ace4af8d63e967bd45497c8b2b05821163d
+  GoogleUserMessagingPlatform: befe603da6501006420c206222acd449bba45a9c
+  OneSignalXCFramework: 2b46c36b38528b65dce33ed9d83375f8c98bf40c
+  VLPlaySDK: f68be528ba93808cdbb4b0fd752a39602e96ab80
+
+PODFILE CHECKSUM: 49072a308db3e133d3b8e969aa774faa7dc7b104
+
+COCOAPODS: 1.16.2

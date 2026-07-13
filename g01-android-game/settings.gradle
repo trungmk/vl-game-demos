@@ -1,0 +1,16 @@
+// G01 game integration — consumes VLPlaySDK as prebuilt AAR (production mode).
+//
+// AAR location: app/libs/VLPlaySDK-G01.aar
+// Build a fresh AAR with:
+//   cd ../vlgame-sdk-main-android
+//   git checkout variant/G01
+//   bin/build-aar.sh G01
+//   cp build/VLPlaySDK-G01.aar ../g01-android-game/app/libs/
+//
+// To switch back to source path dependency (dev mode), restore:
+//   include ':VLPlaySDK'
+//   project(':VLPlaySDK').projectDir = file('../vlgame-sdk-main-android/vlgame-sdk-android/VLPlaySDK')
+// + flip `implementation files('libs/VLPlaySDK-G01.aar')` back to
+//   `implementation project(':VLPlaySDK')` in app/build.gradle.
+
+include ':app'

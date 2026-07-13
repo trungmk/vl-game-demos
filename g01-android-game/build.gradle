@@ -1,0 +1,43 @@
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+buildscript {
+    ext.kotlin_version = '1.9.24'
+    repositories {
+        google()
+        mavenCentral()
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:8.2.0'
+        classpath 'com.google.gms:google-services:4.4.0'
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+        // NOTE: Do not place your application dependencies here; they belong
+        // in the individual module build.gradle files
+    }
+}
+
+allprojects {
+    repositories {
+        google()
+        mavenCentral()
+        flatDir {
+            dirs 'libs'
+        }
+    }
+
+    // Belt-and-suspenders for OneSignal SDK transitive Kotlin pulls. OneSignal
+    // 5.2.x+ ships kotlin-stdlib 2.x → Compose Compiler 1.5.14 / Kotlin 1.9.24
+    // can't read its `kotlin.Unit` metadata. Pin every Kotlin stdlib artifact
+    // back to the project's compiler version so any future OneSignal bump still
+    // builds without forcing a Kotlin upgrade.
+    configurations.all {
+        resolutionStrategy.eachDependency { details ->
+            if (details.requested.group == 'org.jetbrains.kotlin' &&
+                    details.requested.name.startsWith('kotlin-stdlib')) {
+                details.useVersion rootProject.ext.kotlin_version
+            }
+        }
+    }
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}
