@@ -12,7 +12,7 @@
     "com.google.external-dependency-manager": "1.2.187",
     "com.unity.device-simulator.devices": "1.0.1",
     "com.unity.multiplayer.center": "1.0.0",
-    "vn.vlplay.sdk": "file:../../vlgame-sdk-unity",
+    "vn.vlplay.sdk": "file:../../../vlgame-sdk-unity",
     "com.unity.modules.accessibility": "1.0.0",
     "com.unity.modules.ai": "1.0.0",
     "com.unity.modules.androidjni": "1.0.0",
