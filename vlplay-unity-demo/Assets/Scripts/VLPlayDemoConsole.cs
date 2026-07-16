@@ -46,6 +46,17 @@ public sealed class VLPlayDemoConsole : MonoBehaviour
     private void HandleAaKick(VLPlayAntiAddictionKick k) => Log("OnAntiAddictionKick → " + k);
     private void HandleError(VLPlayError e) => Log("OnError → " + e);
 
+    // U2-4: synchronous read of the SDK's last server anti-addiction status.
+    private void LogAaStatus()
+    {
+        var s = VLPlaySDK.GetAntiAddictionStatus();
+        if (s == null) { Log("GetAntiAddictionStatus → (none yet — SDK hasn't polled)"); return; }
+        Log("GetAntiAddictionStatus → " + s +
+            " | today " + s.totalPlayedMinutesToday + "m played / " + s.remainingMinutesToday + "m left" +
+            " | session " + s.currentSessionMinutes + "m / " + s.remainingSessionMinutes + "m left" +
+            (string.IsNullOrEmpty(s.cooldownUntil) ? "" : " | cooldownUntil " + s.cooldownUntil));
+    }
+
 #if UNITY_ANDROID && !UNITY_EDITOR
     private static void ForceSessionExpireAndroid()
     {
@@ -84,6 +95,8 @@ public sealed class VLPlayDemoConsole : MonoBehaviour
         GUILayout.BeginHorizontal();
         if (GUILayout.Button("AA warn", GUILayout.Height(56))) VLPlaySDK.DebugForceAntiAddiction(false);
         if (GUILayout.Button("AA kick", GUILayout.Height(56))) VLPlaySDK.DebugForceAntiAddiction(true);
+        // Real public API (not debug) — reads the SDK's last server status synchronously.
+        if (GUILayout.Button("AA status", GUILayout.Height(56))) LogAaStatus();
 #if UNITY_ANDROID && !UNITY_EDITOR
         // Android-only: iOS exposes no session-expire hook.
         if (GUILayout.Button("Session expire", GUILayout.Height(56))) ForceSessionExpireAndroid();
