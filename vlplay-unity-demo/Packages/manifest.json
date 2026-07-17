@@ -9,6 +9,7 @@
     }
   ],
   "dependencies": {
+    "com.coplaydev.unity-mcp": "https://github.com/CoplayDev/unity-mcp.git?path=/MCPForUnity#main",
     "com.google.external-dependency-manager": "1.2.187",
     "com.unity.device-simulator.devices": "1.0.1",
     "com.unity.multiplayer.center": "1.0.0",
