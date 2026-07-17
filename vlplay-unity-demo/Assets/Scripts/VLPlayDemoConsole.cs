@@ -19,6 +19,11 @@ public sealed class VLPlayDemoConsole : MonoBehaviour
     private VLPlayLanguage _language;
     private VLPlayOrientation _orientation;
 
+    // U3-5: Buy targets the first catalog package once Catalog has run; before that it
+    // falls back to the stg demo game's known product so Buy works standalone too.
+    private string _buyProductId = "com.vlplay.demo.pack_001";
+    private bool _buyFromCatalog;
+
     private void OnEnable()
     {
         VLPlayEvents.OnSignIn += HandleSignIn;
@@ -26,6 +31,7 @@ public sealed class VLPlayDemoConsole : MonoBehaviour
         VLPlayEvents.OnSessionExpired += HandleSessionExpired;
         VLPlayEvents.OnAntiAddictionWarn += HandleAaWarn;
         VLPlayEvents.OnAntiAddictionKick += HandleAaKick;
+        VLPlayEvents.OnPurchaseCompleted += HandlePurchaseCompleted;
         VLPlayEvents.OnError += HandleError;
     }
 
@@ -36,6 +42,7 @@ public sealed class VLPlayDemoConsole : MonoBehaviour
         VLPlayEvents.OnSessionExpired -= HandleSessionExpired;
         VLPlayEvents.OnAntiAddictionWarn -= HandleAaWarn;
         VLPlayEvents.OnAntiAddictionKick -= HandleAaKick;
+        VLPlayEvents.OnPurchaseCompleted -= HandlePurchaseCompleted;
         VLPlayEvents.OnError -= HandleError;
     }
 
@@ -53,7 +60,66 @@ public sealed class VLPlayDemoConsole : MonoBehaviour
     private void HandleSessionExpired() => Log("OnSessionExpired");
     private void HandleAaWarn(string m) => Log("OnAntiAddictionWarn → " + m);
     private void HandleAaKick(VLPlayAntiAddictionKick k) => Log("OnAntiAddictionKick → " + k);
+    private void HandlePurchaseCompleted() => Log("OnPurchaseCompleted (broadcast — also fires for FAB/webpay buys)");
     private void HandleError(VLPlayError e) => Log("OnError → " + e);
+
+    // ---- U3-5: IAP row ----
+
+    private void LogCatalog()
+    {
+        Log("GetProductCatalog…");
+        VLPlaySDK.GetProductCatalog((packages, error) =>
+        {
+            if (error != null) { Log("GetProductCatalog FAILED → " + error); return; }
+            Log("GetProductCatalog → " + packages.Length + " package(s)");
+            foreach (var p in packages) Log("  • " + p);
+            if (packages.Length > 0)
+            {
+                _buyProductId = packages[0].storeProductId;
+                _buyFromCatalog = true;
+                Log("  Buy now targets " + _buyProductId);
+            }
+        });
+    }
+
+    private void Buy()
+    {
+        string target = _buyProductId + (_buyFromCatalog ? "" : " (fallback — run Catalog first)");
+        Log("Purchase " + target + "…");
+        VLPlaySDK.Purchase(_buyProductId, result =>
+        {
+            // iOS reports a user-cancel as Failed (no cancel marker in the native
+            // notification) — expected drift, don't file it as a bug.
+            Log("Purchase → " + result);
+        });
+    }
+
+    private void LogHistory()
+    {
+        Log("GetPurchaseHistory(1, 10)…");
+        VLPlaySDK.GetPurchaseHistory(1, 10, (history, error) =>
+        {
+            if (error != null) { Log("GetPurchaseHistory FAILED → " + error); return; }
+            Log("GetPurchaseHistory → " + history.transactions.Length + " row(s)" +
+                (history.totalPages >= 0
+                    ? "  (totalPages=" + history.totalPages + " page=" + history.page + " limit=" + history.limit + ")"
+                    : "  (pagination unknown on iOS — native drops the envelope)"));
+            foreach (var t in history.transactions)
+                Log("  • " + t + (t.createdAtEpochMillis > 0 ? "  @" + t.createdAt : ""));
+        });
+    }
+
+    private void Restore()
+    {
+        Log("RestorePurchases…");
+        VLPlaySDK.RestorePurchases((items, error) =>
+        {
+            if (error != null) { Log("RestorePurchases FAILED → " + error); return; }
+            Log("RestorePurchases → " + items.Length + " item(s)" +
+                (items.Length == 0 ? " (nothing to restore is a success)" : ""));
+            foreach (var it in items) Log("  • " + it);
+        });
+    }
 
     // U2-4: synchronous read of the SDK's last server anti-addiction status.
     private void LogAaStatus()
@@ -185,6 +251,15 @@ public sealed class VLPlayDemoConsole : MonoBehaviour
         if (GUILayout.Button("Lang: " + _language, GUILayout.Height(56))) CycleLanguage();
         if (GUILayout.Button("Orient: " + _orientation, GUILayout.Height(56))) CycleOrientation();
         if (GUILayout.Button("Config", GUILayout.Height(56))) LogConfig();
+        GUILayout.EndHorizontal();
+
+        // U3-5 IAP row. Catalog retargets Buy to the first CMS package; Buy needs a
+        // signed-in account + a store-configured product (License Tester / sandbox).
+        GUILayout.BeginHorizontal();
+        if (GUILayout.Button("Catalog", GUILayout.Height(56))) LogCatalog();
+        if (GUILayout.Button("Buy" + (_buyFromCatalog ? "" : "*"), GUILayout.Height(56))) Buy();
+        if (GUILayout.Button("History", GUILayout.Height(56))) LogHistory();
+        if (GUILayout.Button("Restore", GUILayout.Height(56))) Restore();
         GUILayout.EndHorizontal();
 
         GUILayout.Label("Event log:");
