@@ -36,6 +36,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, nullable, copy)   NSString *fullName;
 @property (nonatomic, nullable, copy)   NSString *identifier;
 @property (nonatomic, nullable, copy)   NSString *identityCard;
+@property (nonatomic, nullable, strong) NSNumber *identityVerified;   // BE durable flag (PR #94) — authoritative "has verified"
 @property (nonatomic, nullable, strong) NSNumber *isBanned;
 @property (nonatomic, nullable, strong) NSNumber *isUpdatePassword;
 @property (nonatomic, nullable, copy)   NSString *issueDate;
