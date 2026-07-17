@@ -7,4 +7,5 @@ framework module VLPlaySDK {
 
 module VLPlaySDK.Swift {
   header "VLPlaySDK-Swift.h"
+  requires objc
 }

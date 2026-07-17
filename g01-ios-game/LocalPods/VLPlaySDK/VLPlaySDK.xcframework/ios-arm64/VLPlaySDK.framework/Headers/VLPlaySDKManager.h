@@ -465,6 +465,29 @@ typedef void (^VLPlayRestoreCompletionBlock)(NSInteger restoredCount, NSError * 
               completion:(nullable VLPlayRestoreCompletionBlock)completion NS_AVAILABLE_IOS(8_0);
 
 /*!
+ @brief Paginated purchase history for the signed-in player — the successful
+        transactions this account has made in this game.
+ @param page 1-based page index.
+ @param size page size.
+ @param completion Called on the main queue. On success `transactions` is an
+        NSArray of NSDictionary straight from the BE, one per transaction:
+        `code, transactionId, productId, bundleId, amount, currency, type,
+        paymentStatus, createdAt` (ISO-8601). An empty history is a SUCCESS with
+        an empty array, not an error (BE signals it with statusCode 1049
+        TRANSACTION_NOT_FOUND, which the SDK maps to []).
+        On failure: `error.userInfo[@"message"]` contains a localized message.
+ @discussion Calls `GET /api/v1/client/purchase/?page=&limit=`; returns both
+        APPLE and GOOGLE records for this player, filtered BE-side by the Bearer.
+        Parity with Android's
+        `VLPlaySDKManager.listSuccessfulTransactions(page, size, PurchaseHistoryListener)`.
+ */
+- (void)listSuccessfulTransactionsAtPage:(NSInteger)page
+                                    size:(NSInteger)size
+                              completion:(nullable void (^)(BOOL status,
+                                                            NSArray * _Nullable transactions,
+                                                            NSError * _Nullable error))completion NS_AVAILABLE_IOS(8_0);
+
+/*!
 
 /*!
  @brief method to update game server and character info.

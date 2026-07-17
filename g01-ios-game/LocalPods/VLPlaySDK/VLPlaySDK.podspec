@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = 'VLPlaySDK'
-  s.version      = '1.1.7'
+  s.version      = '1.2.1'
   s.summary      = 'VLPlaySDK G01 — prebuilt xcframework consumed as a binary (g01-ios-game demo).'
   s.description  = <<-DESC
     Binary-distribution podspec for the G01 variant of VLPlaySDK. Vendors the

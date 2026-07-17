@@ -6,7 +6,7 @@
 	<dict>
 		<key>AppAuthCore_Privacy.bundle/Info.plist</key>
 		<data>
-		lbYwFsEou7akuZkUJnypMyx8g3o=
+		84hcK2W3lmhGhNNULb/Bdv5+JXI=
 		</data>
 		<key>AppAuthCore_Privacy.bundle/PrivacyInfo.xcprivacy</key>
 		<data>
@@ -14,7 +14,7 @@
 		</data>
 		<key>AppsFlyerLib_Privacy.bundle/Info.plist</key>
 		<data>
-		1knG/CrC4wRpshmRchIAwOaz4mE=
+		7tZJXSsq+TlzrltLv2btcu8uspU=
 		</data>
 		<key>AppsFlyerLib_Privacy.bundle/PrivacyInfo.xcprivacy</key>
 		<data>
@@ -22,7 +22,7 @@
 		</data>
 		<key>FBLPromises_Privacy.bundle/Info.plist</key>
 		<data>
-		bWUWALHU4EWqnlzJ5vwvcULfDMs=
+		3o8FgXlMjn5JyJ+5PEcrgolKOKs=
 		</data>
 		<key>FBLPromises_Privacy.bundle/PrivacyInfo.xcprivacy</key>
 		<data>
@@ -30,7 +30,7 @@
 		</data>
 		<key>FirebaseCoreInternal_Privacy.bundle/Info.plist</key>
 		<data>
-		G+PZxrjfoFymUAa8iYA7l96xIEI=
+		sDngaYKL34jl33Hwy25IyE1SpsM=
 		</data>
 		<key>FirebaseCoreInternal_Privacy.bundle/PrivacyInfo.xcprivacy</key>
 		<data>
@@ -38,7 +38,7 @@
 		</data>
 		<key>FirebaseCore_Privacy.bundle/Info.plist</key>
 		<data>
-		aLJ3ZUB9fYzHXpVx+8TwpVR1pWw=
+		W3qe36mNpnEJRXeW8jplOz/iQqY=
 		</data>
 		<key>FirebaseCore_Privacy.bundle/PrivacyInfo.xcprivacy</key>
 		<data>
@@ -46,7 +46,7 @@
 		</data>
 		<key>GTMAppAuth_Privacy.bundle/Info.plist</key>
 		<data>
-		KAlkhM5lNbHDcqRP9ezwNiuVJcQ=
+		PrA1iTGIytYUZ2/rBAOIVO3fKM0=
 		</data>
 		<key>GTMAppAuth_Privacy.bundle/PrivacyInfo.xcprivacy</key>
 		<data>
@@ -54,7 +54,7 @@
 		</data>
 		<key>GTMSessionFetcher_Core_Privacy.bundle/Info.plist</key>
 		<data>
-		vGVFBRANLUi5wMUcZnlixhJRyaw=
+		2JE8qacBIBmAbIq7Qw7pec+YWRY=
 		</data>
 		<key>GTMSessionFetcher_Core_Privacy.bundle/PrivacyInfo.xcprivacy</key>
 		<data>
@@ -62,7 +62,7 @@
 		</data>
 		<key>GoogleSignIn.bundle/Info.plist</key>
 		<data>
-		3OH/e69/EodniZomM0GKhJPKJjQ=
+		u1H3pBET2jCuEOcXIPAQ/HBU+WU=
 		</data>
 		<key>GoogleSignIn.bundle/PrivacyInfo.xcprivacy</key>
 		<data>
@@ -428,7 +428,7 @@
 		</dict>
 		<key>GoogleUtilities_Privacy.bundle/Info.plist</key>
 		<data>
-		rHTpU6MlNjuA0qCy/EQJxPx9kXM=
+		XUe9rZrEjV8M2GkopbHutzjvQ6M=
 		</data>
 		<key>GoogleUtilities_Privacy.bundle/PrivacyInfo.xcprivacy</key>
 		<data>
@@ -452,7 +452,7 @@
 		</data>
 		<key>Headers/Constants.h</key>
 		<data>
-		125uMcV4FeBHAHXRh+0/WgqVJIY=
+		bVN1gCX12mV5o2T9OXh+y1+buWA=
 		</data>
 		<key>Headers/Global.h</key>
 		<data>
@@ -516,7 +516,7 @@
 		</data>
 		<key>Headers/VLPlaySDK-Swift.h</key>
 		<data>
-		XokTa7iufB5wqDUCVwuhUQsFZB0=
+		5eFdtaD7yS36aicuZw3Sk2LNXeM=
 		</data>
 		<key>Headers/VLPlaySDK.h</key>
 		<data>
@@ -524,7 +524,7 @@
 		</data>
 		<key>Headers/VLPlaySDKManager.h</key>
 		<data>
-		8BokwQBxRij3nifH8GWiZCNfBr8=
+		t7grUZn18lWpVHRQUfn7uzu0JFs=
 		</data>
 		<key>Headers/VLPlaySdkConfig.h</key>
 		<data>
@@ -536,7 +536,7 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		p2gOLpmSTXdkBLJQ/SE0GGuG26o=
+		jQRqD8Qn+xbo0PEXceld+NrUCCU=
 		</data>
 		<key>Modules/VLPlaySDK.swiftmodule/arm64-apple-ios-simulator.abi.json</key>
 		<data>
@@ -544,19 +544,19 @@
 		</data>
 		<key>Modules/VLPlaySDK.swiftmodule/arm64-apple-ios-simulator.private.swiftinterface</key>
 		<data>
-		TEOGsfiUItkq5zv/MCpYLnt0vDM=
+		3TwW+35txUQ/dJKkl+Rya1LBJIA=
 		</data>
 		<key>Modules/VLPlaySDK.swiftmodule/arm64-apple-ios-simulator.swiftdoc</key>
 		<data>
-		6RNWZFA0HqMD2fFjT0s9vkHitAk=
+		whb/H5u20/Q1YkQbi2uLxrZDwFQ=
 		</data>
 		<key>Modules/VLPlaySDK.swiftmodule/arm64-apple-ios-simulator.swiftinterface</key>
 		<data>
-		TEOGsfiUItkq5zv/MCpYLnt0vDM=
+		3TwW+35txUQ/dJKkl+Rya1LBJIA=
 		</data>
 		<key>Modules/VLPlaySDK.swiftmodule/arm64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		Xr1NsAOniwFGcGrrUC2YXlAd7UM=
+		qNeBiw/cVyPymT9skI1LuldMtiE=
 		</data>
 		<key>Modules/VLPlaySDK.swiftmodule/x86_64-apple-ios-simulator.abi.json</key>
 		<data>
@@ -564,23 +564,23 @@
 		</data>
 		<key>Modules/VLPlaySDK.swiftmodule/x86_64-apple-ios-simulator.private.swiftinterface</key>
 		<data>
-		1/DevRR+Lecliq08Xlh8pprXbyE=
+		5AL8C0yrL7fNxoulSj1iB5Ra1SI=
 		</data>
 		<key>Modules/VLPlaySDK.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
 		<data>
-		AlQ2/kaVQpeWFNSXml3Knwc9KDM=
+		J/IQhFuRLrl8zETM2QwVnlN7sUo=
 		</data>
 		<key>Modules/VLPlaySDK.swiftmodule/x86_64-apple-ios-simulator.swiftinterface</key>
 		<data>
-		1/DevRR+Lecliq08Xlh8pprXbyE=
+		5AL8C0yrL7fNxoulSj1iB5Ra1SI=
 		</data>
 		<key>Modules/VLPlaySDK.swiftmodule/x86_64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		KchETEyKPvCLRjnW6jybTTHCb64=
+		WM+x409dNIRQ9R5zczZPA/1UQ74=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
-		7ImrwIiVby2st+b5up5ZabYsFp8=
+		GLphhZ1cXEB/oobnb/Wxrpipiac=
 		</data>
 		<key>PrivacyInfo.xcprivacy</key>
 		<data>
@@ -588,7 +588,7 @@
 		</data>
 		<key>UpdatePlayerInfo.nib</key>
 		<data>
-		bACfVpTY7NkOAC4DyKlOhz94seU=
+		3NYcT2erxdfPPJJSsG5ZZ+5kP5c=
 		</data>
 		<key>ic_dropdown.png</key>
 		<data>
@@ -601,7 +601,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			Ro74BewWEpoNqOdGNxRqmX1CUhDRUWEqz03RtcHSPPw=
+			mLNvKkxJR4mYhvnST8z1G3/VBlx+vxaJ00vepu+OFIg=
 			</data>
 		</dict>
 		<key>AppAuthCore_Privacy.bundle/PrivacyInfo.xcprivacy</key>
@@ -615,7 +615,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			MsTBae0+RefyiHVXXOBQm7kLg2Rh5mQ+Hvc/NXibH+k=
+			l6h9Mn4HbbNa3l8XCokgMn5q/j9n+uhsf/5dc6JdUAI=
 			</data>
 		</dict>
 		<key>AppsFlyerLib_Privacy.bundle/PrivacyInfo.xcprivacy</key>
@@ -629,7 +629,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			QVqdxmQP/HY8N7yzeVs4WYAtEVr37Jq+WCxb73WvCrk=
+			9NkVyrFWe6tQKWJtMGqp3gwXp4cc11+dtvusBtBNNnU=
 			</data>
 		</dict>
 		<key>FBLPromises_Privacy.bundle/PrivacyInfo.xcprivacy</key>
@@ -643,7 +643,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			HkAXjp3kjuwvU+ra1gJX661VN/ut1zMPIbGEFA9ZgYY=
+			iNGpZyQ/Q/tdQum5VFcFlBOff1EzsAWUSh/RrvK2en4=
 			</data>
 		</dict>
 		<key>FirebaseCoreInternal_Privacy.bundle/PrivacyInfo.xcprivacy</key>
@@ -657,7 +657,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			TNY1iZNsh+Bwhoi12AkIO7AWM5m/E1nMnm88geS5ek4=
+			u2KsDn+E1Lcai4GGffDURUpT5fK+8vmwQZmdngROP7A=
 			</data>
 		</dict>
 		<key>FirebaseCore_Privacy.bundle/PrivacyInfo.xcprivacy</key>
@@ -671,7 +671,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			1TYoKyNdXp376IM44bnn8hKEm6yCn/bSobJ6jDSsJe4=
+			aYCHn/+aQQVLBJ7j1/1C9JeUxYZEhjCJpt0jPr78JZE=
 			</data>
 		</dict>
 		<key>GTMAppAuth_Privacy.bundle/PrivacyInfo.xcprivacy</key>
@@ -685,7 +685,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			YT3zEyDS6b3FBBQx/RbInnHw1lPzTIM6xq+L7eBc3tk=
+			0Hvj75LK+xOJQLJuA+RiuEGsaz/NHZvHvRnZk5PlNUg=
 			</data>
 		</dict>
 		<key>GTMSessionFetcher_Core_Privacy.bundle/PrivacyInfo.xcprivacy</key>
@@ -699,7 +699,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			RWvk+mx4LXAbDCRcDZrOBoDUozoo0zu+rWwDPYGZKS0=
+			mxA4EjMLDt5Ret48+067tZ5woKWhxhJVaaqyliebltw=
 			</data>
 		</dict>
 		<key>GoogleSignIn.bundle/PrivacyInfo.xcprivacy</key>
@@ -1083,7 +1083,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			ruDJOeMO5otnfJDr8CNkLJJqsqNB/r2sEMXsGutpKQw=
+			nUbIaiLf+jmkrp6MbFbeBmKT6tOYSV+WBVe4ptBWWcw=
 			</data>
 		</dict>
 		<key>GoogleUtilities_Privacy.bundle/PrivacyInfo.xcprivacy</key>
@@ -1125,7 +1125,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			mJ2D16ZWZJZinMCuGBGKUhRtp81kfiiUcM9i3YOqe5E=
+			GN7/YroZ2prPQOtxNVVGxu9PJI3mk5L99aR5G0VcM7w=
 			</data>
 		</dict>
 		<key>Headers/Global.h</key>
@@ -1237,7 +1237,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			7hHxbsi0QeU5tJc86y0fCMGMt6t2g6JGxvhb80WXMUg=
+			pGngH3iEgoq3Wmv/SKFgY8LTkYmZh+BNpZy/3XVGdsA=
 			</data>
 		</dict>
 		<key>Headers/VLPlaySDK.h</key>
@@ -1251,7 +1251,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			28qQCzJm+h26UzW6ODbk2WuDfwRmHjNvMobVuGJMbPw=
+			DHubnAVsdxISvACa7OC9Ol8TGeoIonPHLM0uJIpA9Wc=
 			</data>
 		</dict>
 		<key>Headers/VLPlaySdkConfig.h</key>
@@ -1279,28 +1279,28 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			qJNybPcvezOyR1JLai510LIC/HIHScvDXN3Po702Y4E=
+			ihDgQRCpfyQKdXFWCCS4lCchK9Pv7GslJ7k7Zj4G82M=
 			</data>
 		</dict>
 		<key>Modules/VLPlaySDK.swiftmodule/arm64-apple-ios-simulator.swiftdoc</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			Ziig5AvMqFeA78XKhZlRy7GqpMH0I7rr213e6R8rxcA=
+			PUKXGke7G9pw0pH5Fx4tyZ+zDvoXC8BodmgNdiHWGX8=
 			</data>
 		</dict>
 		<key>Modules/VLPlaySDK.swiftmodule/arm64-apple-ios-simulator.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			qJNybPcvezOyR1JLai510LIC/HIHScvDXN3Po702Y4E=
+			ihDgQRCpfyQKdXFWCCS4lCchK9Pv7GslJ7k7Zj4G82M=
 			</data>
 		</dict>
 		<key>Modules/VLPlaySDK.swiftmodule/arm64-apple-ios-simulator.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			ORTAK0x/DRFGnHmDE2WE0DgtuI6qaQYa9D7327U8Rbk=
+			8++87I81fW6ppKctKfjgPl7nBXuJq6Ut3OUS3X5ELdc=
 			</data>
 		</dict>
 		<key>Modules/VLPlaySDK.swiftmodule/x86_64-apple-ios-simulator.abi.json</key>
@@ -1314,35 +1314,35 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			Zn7p9Gkwz8uuwIWqUREaAsRqkJDs25SFVrujcOrVFWM=
+			+NacYhKEqkG/pYp96TL0DkNCSERq4VayTCD9yudB8nQ=
 			</data>
 		</dict>
 		<key>Modules/VLPlaySDK.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			2xW9EpHPPPA3p7R5RYgYJMMYr+ieMXxE082Hf/rrfQI=
+			x3PfVfvOKwxL1t9L8OA1lDwswxu419GT8vFK2kCazF4=
 			</data>
 		</dict>
 		<key>Modules/VLPlaySDK.swiftmodule/x86_64-apple-ios-simulator.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			Zn7p9Gkwz8uuwIWqUREaAsRqkJDs25SFVrujcOrVFWM=
+			+NacYhKEqkG/pYp96TL0DkNCSERq4VayTCD9yudB8nQ=
 			</data>
 		</dict>
 		<key>Modules/VLPlaySDK.swiftmodule/x86_64-apple-ios-simulator.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			JgNKtAO+LEQhZivfp72B5238dc9qwGz9e4/hxiCBcyY=
+			+ER6ILYKGeCl2tqi3YM5Qwqq2WqTLg/EBNLZQ2gcSIM=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			8MshQwZkxpBt9oWMF7P+iZyHmEa+sXE3gvflQsw3k6k=
+			TE5e0wxsHmGnYi+g56IP2LO5kdgJ5wrN7S6ckbk5wwc=
 			</data>
 		</dict>
 		<key>PrivacyInfo.xcprivacy</key>
@@ -1356,7 +1356,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			VYOBtorJCgjVSAWr8F1FeqiH7xdy4p/6MD8W8h8DUW4=
+			kmH1deFRJSjGoBxpES69P7y2/L6sXmAKUrG+RhdFS4A=
 			</data>
 		</dict>
 		<key>ic_dropdown.png</key>
