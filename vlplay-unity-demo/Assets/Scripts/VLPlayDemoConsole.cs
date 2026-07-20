@@ -3,15 +3,17 @@ using UnityEngine;
 using VLPlay;
 
 /// <summary>
-/// Minimal on-screen console for device-verifying the VLPlay Unity wrapper.
-/// Every VLPlayEvents callback is appended to the log panel — this is the
-/// harness the SDK phases (U1+) are verified through. IMGUI so it needs no
-/// canvas/prefab wiring; grows into the full tile console at U6.
+/// On-screen console for device-verifying the VLPlay Unity wrapper (U6-1 polish).
+/// Landscape two-pane layout parity the g01 demo hubs: header (env badge + user
+/// pill) · sectioned tile grid on the left · live event-log panel on the right.
+/// Every VLPlayEvents callback is appended to the log — this is the harness the
+/// SDK phases are verified through. IMGUI so it needs no canvas/prefab wiring.
 /// </summary>
 public sealed class VLPlayDemoConsole : MonoBehaviour
 {
     private readonly List<string> _log = new List<string>();
-    private Vector2 _scroll;
+    private Vector2 _logScroll;
+    private Vector2 _tileScroll;
 
     // U2-5: mirrored from the SDK, not from what we asked for — refreshed after every
     // Set so the label proves the round-trip. Cached because OnGUI runs several times
@@ -23,6 +25,14 @@ public sealed class VLPlayDemoConsole : MonoBehaviour
     // falls back to the stg demo game's known product so Buy works standalone too.
     private string _buyProductId = "com.vlplay.demo.pack_001";
     private bool _buyFromCatalog;
+
+    // U6-1: env badge reads the same settings asset Init() consumes.
+    private bool _useStaging = true;
+
+    // Lazily-built styles — GUIStyle needs a live skin, so no field initializers.
+    private GUIStyle _headerStyle, _badgeStyle, _pillStyle, _sectionStyle, _logStyle, _tileStyle;
+    private Texture2D _badgeStgTex, _badgeProdTex, _pillTex;
+    private bool _stylesReady;
 
     private void OnEnable()
     {
@@ -48,7 +58,9 @@ public sealed class VLPlayDemoConsole : MonoBehaviour
 
     private void Start()
     {
-        VLPlaySDK.Init();
+        var settings = VLPlaySettings.Load();
+        if (settings != null) _useStaging = settings.useStaging;
+        VLPlaySDK.Init(settings);
         _language = VLPlaySDK.GetLanguage();
         _orientation = VLPlaySDK.GetOrientation();
         Log("Init() — EditorBridge mock in Editor, native bridge on device");
@@ -202,70 +214,185 @@ public sealed class VLPlayDemoConsole : MonoBehaviour
     {
         _log.Add("[" + Time.time.ToString("0.0") + "] " + line);
         Debug.Log("[VLPlayDemo] " + line);
-        _scroll.y = float.MaxValue;
+        _logScroll.y = float.MaxValue;
+    }
+
+    // ---- U6-1: chrome ----
+
+    private static Texture2D SolidTex(Color c)
+    {
+        var t = new Texture2D(1, 1);
+        t.SetPixel(0, 0, c);
+        t.Apply();
+        return t;
+    }
+
+    private void EnsureStyles()
+    {
+        if (_stylesReady) return;
+        _stylesReady = true;
+
+        _badgeStgTex  = SolidTex(new Color(0.85f, 0.55f, 0.10f, 0.95f)); // amber
+        _badgeProdTex = SolidTex(new Color(0.15f, 0.60f, 0.30f, 0.95f)); // green
+        _pillTex      = SolidTex(new Color(0f, 0f, 0f, 0.45f));
+
+        _headerStyle = new GUIStyle(GUI.skin.label)
+        {
+            fontSize = 22, fontStyle = FontStyle.Bold,
+            normal = { textColor = Color.white }
+        };
+        _badgeStyle = new GUIStyle(GUI.skin.label)
+        {
+            fontSize = 14, fontStyle = FontStyle.Bold, alignment = TextAnchor.MiddleCenter,
+            normal = { textColor = Color.white, background = _badgeStgTex },
+            padding = new RectOffset(10, 10, 4, 4)
+        };
+        _pillStyle = new GUIStyle(GUI.skin.label)
+        {
+            fontSize = 15, alignment = TextAnchor.MiddleRight,
+            normal = { textColor = Color.white, background = _pillTex },
+            padding = new RectOffset(12, 12, 4, 4)
+        };
+        _sectionStyle = new GUIStyle(GUI.skin.label)
+        {
+            fontSize = 13, fontStyle = FontStyle.Bold,
+            normal = { textColor = new Color(1f, 1f, 1f, 0.65f) }
+        };
+        _logStyle = new GUIStyle(GUI.skin.label) { fontSize = 14, wordWrap = true };
+        _tileStyle = new GUIStyle(GUI.skin.button) { fontSize = 17 };
+    }
+
+    private void Section(string title)
+    {
+        GUILayout.Space(6);
+        GUILayout.Label(title, _sectionStyle);
+    }
+
+    private bool Tile(string label)
+    {
+        return GUILayout.Button(label, _tileStyle, GUILayout.Height(52));
+    }
+
+    private void DrawHeader()
+    {
+        GUILayout.BeginHorizontal();
+        GUILayout.Label("VLPlay SDK Demo", _headerStyle, GUILayout.ExpandWidth(false));
+        GUILayout.Space(10);
+
+        _badgeStyle.normal.background = _useStaging ? _badgeStgTex : _badgeProdTex;
+        GUILayout.Label(_useStaging ? "STAGING" : "PRODUCTION", _badgeStyle, GUILayout.ExpandWidth(false));
+
+        GUILayout.FlexibleSpace();
+
+        // User pill — proves CurrentUser carries the real signed-in account.
+        var user = VLPlaySDK.CurrentUser;
+        string pill = user == null
+            ? "○ chưa đăng nhập"
+            : "● " + user.username + (user.isGuest ? " [GUEST]" : "") + "  ·  id " + Dash(user.accountId);
+        GUILayout.Label(pill, _pillStyle, GUILayout.ExpandWidth(false));
+        GUILayout.EndHorizontal();
+
+        var u2 = VLPlaySDK.CurrentUser;
+        if (u2 != null && (!string.IsNullOrEmpty(u2.email) || !string.IsNullOrEmpty(u2.phone)))
+        {
+            GUILayout.BeginHorizontal();
+            GUILayout.FlexibleSpace();
+            GUILayout.Label("email " + Dash(u2.email) + "    phone " + Dash(u2.phone), _pillStyle,
+                GUILayout.ExpandWidth(false));
+            GUILayout.EndHorizontal();
+        }
+    }
+
+    private void DrawTiles()
+    {
+        _tileScroll = GUILayout.BeginScrollView(_tileScroll);
+
+        Section("TÀI KHOẢN");
+        GUILayout.BeginHorizontal();
+        if (Tile("Login")) VLPlaySDK.SignIn();
+        if (Tile("Logout")) VLPlaySDK.SignOut();
+        if (Tile("Log Event")) VLPlaySDK.LogEvent("demo_button", "{\"src\":\"console\"}");
+        GUILayout.EndHorizontal();
+
+        Section("CHỐNG NGHIỆN (NĐ147)");
+        // Debug rows — a real kick needs a minor's account + a tightened CMS cap, and a
+        // session expiry needs the refresh token to actually fail. Both go through the
+        // SDK's own debug entry points, so the real native chain runs.
+        GUILayout.BeginHorizontal();
+        if (Tile("AA warn")) VLPlaySDK.DebugForceAntiAddiction(false);
+        if (Tile("AA kick")) VLPlaySDK.DebugForceAntiAddiction(true);
+        if (Tile("AA status")) LogAaStatus();
+        GUILayout.EndHorizontal();
+
+        Section("SHOP (IAP V3)");
+        // Catalog retargets Buy to the first CMS package; Buy needs a signed-in
+        // account + a store-configured product (License Tester / sandbox).
+        GUILayout.BeginHorizontal();
+        if (Tile("Catalog")) LogCatalog();
+        if (Tile("Buy" + (_buyFromCatalog ? "" : "*"))) Buy();
+        if (Tile("History")) LogHistory();
+        if (Tile("Restore")) Restore();
+        GUILayout.EndHorizontal();
+
+        Section("CÀI ĐẶT / CONFIG");
+        GUILayout.BeginHorizontal();
+        if (Tile("Lang: " + _language)) CycleLanguage();
+        if (Tile("Orient: " + _orientation)) CycleOrientation();
+        if (Tile("Config")) LogConfig();
+        GUILayout.EndHorizontal();
+
+#if UNITY_ANDROID && !UNITY_EDITOR
+        Section("DEBUG (Android)");
+        GUILayout.BeginHorizontal();
+        // Android-only: iOS exposes no session-expire hook.
+        if (Tile("Session expire")) ForceSessionExpireAndroid();
+        GUILayout.EndHorizontal();
+#endif
+
+        GUILayout.EndScrollView();
+    }
+
+    private void DrawLogPanel()
+    {
+        GUILayout.BeginHorizontal();
+        GUILayout.Label("Event log (" + _log.Count + ")", _sectionStyle);
+        GUILayout.FlexibleSpace();
+        if (GUILayout.Button("Clear", GUILayout.Width(80), GUILayout.Height(28))) _log.Clear();
+        GUILayout.EndHorizontal();
+
+        _logScroll = GUILayout.BeginScrollView(_logScroll, GUI.skin.box);
+        for (int i = 0; i < _log.Count; i++) GUILayout.Label(_log[i], _logStyle);
+        GUILayout.EndScrollView();
     }
 
     private void OnGUI()
     {
+        EnsureStyles();
         const float pad = 12f;
-        GUI.skin.button.fontSize = 20;
-        GUI.skin.label.fontSize = 16;
         GUILayout.BeginArea(new Rect(pad, pad, Screen.width - pad * 2, Screen.height - pad * 2));
 
-        GUILayout.Label("VLPlay Unity Demo — " + (VLPlaySDK.IsSignedIn ? "SIGNED IN" : "signed out"));
+        DrawHeader();
+        GUILayout.Space(8);
 
-        // U2-5 user card — proves CurrentUser is populated with the real signed-in account.
-        var user = VLPlaySDK.CurrentUser;
-        if (user != null)
+        bool twoColumn = Screen.width > Screen.height; // landscape → tiles | log side by side
+        if (twoColumn)
         {
-            GUILayout.BeginVertical(GUI.skin.box);
-            GUILayout.Label(user.username + (user.isGuest ? "   [GUEST]" : "") + "   id=" + Dash(user.accountId));
-            GUILayout.Label("email " + Dash(user.email) + "    phone " + Dash(user.phone));
+            GUILayout.BeginHorizontal();
+            GUILayout.BeginVertical(GUILayout.Width((Screen.width - pad * 2) * 0.52f));
+            DrawTiles();
             GUILayout.EndVertical();
+            GUILayout.Space(10);
+            GUILayout.BeginVertical();
+            DrawLogPanel();
+            GUILayout.EndVertical();
+            GUILayout.EndHorizontal();
         }
-
-        GUILayout.BeginHorizontal();
-        if (GUILayout.Button("Login", GUILayout.Height(56))) VLPlaySDK.SignIn();
-        if (GUILayout.Button("Logout", GUILayout.Height(56))) VLPlaySDK.SignOut();
-        if (GUILayout.Button("Log Event", GUILayout.Height(56)))
-            VLPlaySDK.LogEvent("demo_button", "{\"src\":\"console\"}");
-        GUILayout.EndHorizontal();
-
-        // Debug row — these events are otherwise unreachable in a test: a real kick needs a
-        // minor's account + a tightened CMS cap, and a session expiry needs the refresh token
-        // to actually fail. Both go through the SDK's own debug entry points, so the real
-        // native chain runs.
-        GUILayout.BeginHorizontal();
-        if (GUILayout.Button("AA warn", GUILayout.Height(56))) VLPlaySDK.DebugForceAntiAddiction(false);
-        if (GUILayout.Button("AA kick", GUILayout.Height(56))) VLPlaySDK.DebugForceAntiAddiction(true);
-        // Real public API (not debug) — reads the SDK's last server status synchronously.
-        if (GUILayout.Button("AA status", GUILayout.Height(56))) LogAaStatus();
-#if UNITY_ANDROID && !UNITY_EDITOR
-        // Android-only: iOS exposes no session-expire hook.
-        if (GUILayout.Button("Session expire", GUILayout.Height(56))) ForceSessionExpireAndroid();
-#endif
-        GUILayout.EndHorizontal();
-
-        // U2-4 passthrough row. Labels show what the SDK reports back, not what we set.
-        GUILayout.BeginHorizontal();
-        if (GUILayout.Button("Lang: " + _language, GUILayout.Height(56))) CycleLanguage();
-        if (GUILayout.Button("Orient: " + _orientation, GUILayout.Height(56))) CycleOrientation();
-        if (GUILayout.Button("Config", GUILayout.Height(56))) LogConfig();
-        GUILayout.EndHorizontal();
-
-        // U3-5 IAP row. Catalog retargets Buy to the first CMS package; Buy needs a
-        // signed-in account + a store-configured product (License Tester / sandbox).
-        GUILayout.BeginHorizontal();
-        if (GUILayout.Button("Catalog", GUILayout.Height(56))) LogCatalog();
-        if (GUILayout.Button("Buy" + (_buyFromCatalog ? "" : "*"), GUILayout.Height(56))) Buy();
-        if (GUILayout.Button("History", GUILayout.Height(56))) LogHistory();
-        if (GUILayout.Button("Restore", GUILayout.Height(56))) Restore();
-        GUILayout.EndHorizontal();
-
-        GUILayout.Label("Event log:");
-        _scroll = GUILayout.BeginScrollView(_scroll, GUI.skin.box);
-        for (int i = 0; i < _log.Count; i++) GUILayout.Label(_log[i]);
-        GUILayout.EndScrollView();
+        else
+        {
+            DrawTiles();
+            GUILayout.Space(8);
+            DrawLogPanel();
+        }
 
         GUILayout.EndArea();
     }
