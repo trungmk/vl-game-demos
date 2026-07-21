@@ -228,6 +228,53 @@ public sealed class VLPlayDemoConsole : MonoBehaviour
         Log("GetConfigJson → " + (json ?? "(null)"));
     }
 
+    // ---- U5-4: Account ops + FAB ----
+
+    private bool _fabShown;
+
+    private void LogAccountResult(string op, VLPlayAccountResult r) => Log(op + " → " + r);
+
+    private void BindGoogle()
+    {
+        Log("BindSocial(google)… (OAuth runs inside the SDK — guest only)");
+        VLPlayAccount.BindSocial(VLPlayAccount.ProviderGoogle, r => LogAccountResult("BindSocial", r));
+    }
+
+    private void UpgradeGuest()
+    {
+        // Throwaway creds for the stg test account; no email → no OTP dialog.
+        string username = "ug" + ((long)(Time.realtimeSinceStartup * 1000) % 89999999L + 10000000L);
+        Log("UpgradeGuest(" + username + ")… (guest only; email omitted → no OTP)");
+        VLPlayAccount.UpgradeGuest(username, "12345678", "", r => LogAccountResult("UpgradeGuest", r));
+    }
+
+    private void Giftcode()
+    {
+        Log("RedeemGiftcode(TESTGIFT001)…");
+        VLPlayAccount.RedeemGiftcode("TESTGIFT001", r =>
+            LogAccountResult("RedeemGiftcode", r)); // 10001 GIFTCODE_USED is a business reply, not a bug
+    }
+
+    private void Deactivate()
+    {
+        Log("⚠ DeactivateAccount… (destructive — OnSignOut follows on success)");
+        VLPlayAccount.DeactivateAccount(r => LogAccountResult("DeactivateAccount", r));
+    }
+
+    private void ToggleFab()
+    {
+        if (_fabShown) { Log("DismissFloatingBall"); VLPlaySDK.DismissFloatingBall(); }
+        else
+        {
+            // Local override so the ball shows even when the CMS has no fab block.
+            Log("ConfigureFAB({enabled:true}) + ShowFloatingBall + SetFABContext");
+            VLPlaySDK.ConfigureFAB("{\"enabled\":true}");
+            VLPlaySDK.SetFABContext("{\"serverId\":\"S1\",\"roleName\":\"demo\"}");
+            VLPlaySDK.ShowFloatingBall();
+        }
+        _fabShown = !_fabShown;
+    }
+
     // ---- U4-4: Ads (IAA) ----
 
     // Same local test config as the native sample's "Nạp AdMob TEST" card: Google's
@@ -393,6 +440,18 @@ public sealed class VLPlayDemoConsole : MonoBehaviour
         if (Tile("Login")) VLPlaySDK.SignIn();
         if (Tile("Logout")) VLPlaySDK.SignOut();
         if (Tile("Log Event")) VLPlaySDK.LogEvent("demo_button", "{\"src\":\"console\"}");
+        GUILayout.EndHorizontal();
+        // U5 account ops. Bind/Upgrade need a GUEST session; Deact is destructive.
+        GUILayout.BeginHorizontal();
+        if (Tile("Bind G")) BindGoogle();
+        if (Tile("Upgrade")) UpgradeGuest();
+        if (Tile("Identity")) { Log("ShowIdentityVerification…"); VLPlayAccount.ShowIdentityVerification(); }
+        if (Tile("Guest UI")) { Log("ShowGuestUpgrade…"); VLPlayAccount.ShowGuestUpgrade(); }
+        GUILayout.EndHorizontal();
+        GUILayout.BeginHorizontal();
+        if (Tile("Giftcode")) Giftcode();
+        if (Tile("FAB " + (_fabShown ? "off" : "on"))) ToggleFab();
+        if (Tile("Deact ⚠")) Deactivate();
         GUILayout.EndHorizontal();
 
         Section("CHỐNG NGHIỆN (NĐ147)");
