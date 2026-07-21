@@ -43,6 +43,13 @@ public sealed class VLPlayDemoConsole : MonoBehaviour
         VLPlayEvents.OnAntiAddictionKick += HandleAaKick;
         VLPlayEvents.OnPurchaseCompleted += HandlePurchaseCompleted;
         VLPlayEvents.OnError += HandleError;
+        VLPlayEvents.OnAdLoaded += HandleAdLoaded;
+        VLPlayEvents.OnAdLoadFailed += HandleAdLoadFailed;
+        VLPlayEvents.OnAdShown += HandleAdShown;
+        VLPlayEvents.OnAdDismissed += HandleAdDismissed;
+        VLPlayEvents.OnAdShowFailed += HandleAdShowFailed;
+        VLPlayEvents.OnUserRewarded += HandleUserRewarded;
+        VLPlayEvents.OnRewardConfirmed += HandleRewardConfirmed;
     }
 
     private void OnDisable()
@@ -54,6 +61,13 @@ public sealed class VLPlayDemoConsole : MonoBehaviour
         VLPlayEvents.OnAntiAddictionKick -= HandleAaKick;
         VLPlayEvents.OnPurchaseCompleted -= HandlePurchaseCompleted;
         VLPlayEvents.OnError -= HandleError;
+        VLPlayEvents.OnAdLoaded -= HandleAdLoaded;
+        VLPlayEvents.OnAdLoadFailed -= HandleAdLoadFailed;
+        VLPlayEvents.OnAdShown -= HandleAdShown;
+        VLPlayEvents.OnAdDismissed -= HandleAdDismissed;
+        VLPlayEvents.OnAdShowFailed -= HandleAdShowFailed;
+        VLPlayEvents.OnUserRewarded -= HandleUserRewarded;
+        VLPlayEvents.OnRewardConfirmed -= HandleRewardConfirmed;
     }
 
     private void Start()
@@ -67,13 +81,30 @@ public sealed class VLPlayDemoConsole : MonoBehaviour
         Log("SDK reports language=" + _language + " orientation=" + _orientation);
     }
 
-    private void HandleSignIn(VLPlayUser u) => Log("OnSignIn → " + u);
+    private void HandleSignIn(VLPlayUser u)
+    {
+        Log("OnSignIn → " + u);
+        // The native SDK does NOT wire the ads user id itself — the integrator does.
+        // Needed before any rewarded show (SSV user attribution).
+        if (u != null && !string.IsNullOrEmpty(u.accountId))
+        {
+            VLPlayAds.SetUserId(u.accountId);
+            Log("VLPlayAds.SetUserId(" + u.accountId + ")");
+        }
+    }
     private void HandleSignOut() => Log("OnSignOut");
     private void HandleSessionExpired() => Log("OnSessionExpired");
     private void HandleAaWarn(string m) => Log("OnAntiAddictionWarn → " + m);
     private void HandleAaKick(VLPlayAntiAddictionKick k) => Log("OnAntiAddictionKick → " + k);
     private void HandlePurchaseCompleted() => Log("OnPurchaseCompleted (broadcast — also fires for FAB/webpay buys)");
     private void HandleError(VLPlayError e) => Log("OnError → " + e);
+    private void HandleAdLoaded(string p) => Log("OnAdLoaded → " + p);
+    private void HandleAdLoadFailed(VLPlayAdError e) => Log("OnAdLoadFailed → " + e);
+    private void HandleAdShown(string p) => Log("OnAdShown → " + p);
+    private void HandleAdDismissed(string p) => Log("OnAdDismissed → " + p);
+    private void HandleAdShowFailed(VLPlayAdError e) => Log("OnAdShowFailed → " + e);
+    private void HandleUserRewarded(VLPlayAdReward r) => Log("OnUserRewarded → " + r + "  (ADVISORY — no grant)");
+    private void HandleRewardConfirmed(VLPlayAdReward r) => Log("★ OnRewardConfirmed → " + r + "  — the ONLY place a game grants");
 
     // ---- U3-5: IAP row ----
 
@@ -195,6 +226,56 @@ public sealed class VLPlayDemoConsole : MonoBehaviour
             " emailVerification=" + VLPlaySDK.IsFeatureEnabled(VLPlayFeature.EmailVerification));
         var json = VLPlaySDK.GetConfigJson();
         Log("GetConfigJson → " + (json ?? "(null)"));
+    }
+
+    // ---- U4-4: Ads (IAA) ----
+
+    // Same local test config as the native sample's "Nạp AdMob TEST" card: Google's
+    // PUBLIC test units (fill everywhere incl. emulator, no account), ssv:false —
+    // a locally-injected ssv:true placement could never confirm (no BE ticket).
+    // The vendor dependency must be in the app: VLPlay ▸ Sync Ads Dependencies with
+    // adsProvider=admob (+ admobAppId, or MobileAds crashes at launch).
+    private const string AdmobTestConfigJson =
+        "{" +
+            "\"enabled\":true," +
+            "\"provider\":\"admob\"," +
+            "\"testMode\":true," +
+            "\"placements\":[" +
+                "{\"id\":\"rewarded_test\",\"format\":\"rewarded\"," +
+                    "\"unitId\":\"ca-app-pub-3940256099942544/5224354917\"," +
+                    "\"preload\":true,\"ssv\":false,\"rewardCurrency\":\"gold\",\"rewardAmount\":10}," +
+                "{\"id\":\"interstitial_test\",\"format\":\"interstitial\"," +
+                    "\"unitId\":\"ca-app-pub-3940256099942544/1033173712\",\"preload\":true}" +
+            "]" +
+        "}";
+
+    private const string AdRewardedId = "rewarded_test";
+    private const string AdInterstitialId = "interstitial_test";
+
+    // Polled at 2Hz, not per OnGUI pass — every getter is a real JNI / P-Invoke hop.
+    private bool _adsEnabled, _adsInitialized, _adsRwReady, _adsIntReady;
+    private float _adsNextPoll;
+
+    private void PollAdsStatus()
+    {
+        if (Time.time < _adsNextPoll) return;
+        _adsNextPoll = Time.time + 0.5f;
+        _adsEnabled = VLPlayAds.IsEnabled;
+        _adsInitialized = VLPlayAds.IsInitialized;
+        _adsRwReady = VLPlayAds.IsReady(AdRewardedId);
+        _adsIntReady = VLPlayAds.IsReady(AdInterstitialId);
+    }
+
+    private void ApplyAdsTestConfig()
+    {
+        Log("DebugApplyLocalConfig (AdMob TEST units — QA only, strip before shipping)…");
+        VLPlayAds.DebugApplyLocalConfig(AdmobTestConfigJson);
+        MainThreadLogAdsStatus();
+    }
+
+    private void MainThreadLogAdsStatus()
+    {
+        Log("Ads status: enabled=" + VLPlayAds.IsEnabled + " initialized=" + VLPlayAds.IsInitialized);
     }
 
     private static string Dash(string s)
@@ -332,6 +413,19 @@ public sealed class VLPlayDemoConsole : MonoBehaviour
         if (Tile("Buy" + (_buyFromCatalog ? "" : "*"))) Buy();
         if (Tile("History")) LogHistory();
         if (Tile("Restore")) Restore();
+        GUILayout.EndHorizontal();
+
+        PollAdsStatus();
+        Section("QUẢNG CÁO (IAA)" +
+                (_adsEnabled ? "  ·  " + (_adsInitialized ? "READY" : "init…") : "  ·  off"));
+        // "Ads cfg" injects the AdMob public-test config (parity native demo's
+        // "Nạp AdMob TEST") — needs the vendor dep in the build. Grant modeling:
+        // the log marks OnUserRewarded advisory, OnRewardConfirmed as the grant.
+        GUILayout.BeginHorizontal();
+        if (Tile("Ads cfg")) ApplyAdsTestConfig();
+        if (Tile("Preload all")) { Log("PreloadAll…"); VLPlayAds.PreloadAll(); }
+        if (Tile("RW" + (_adsRwReady ? " ✓" : ""))) VLPlayAds.ShowRewarded(AdRewardedId);
+        if (Tile("INT" + (_adsIntReady ? " ✓" : ""))) VLPlayAds.ShowInterstitial(AdInterstitialId);
         GUILayout.EndHorizontal();
 
         Section("CÀI ĐẶT / CONFIG");
