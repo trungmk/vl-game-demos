@@ -46,6 +46,7 @@ GoogleService-Info.plist
 .vsconfig
 sysinfo.txt
 crashlytics-build.properties
+mono_crash.*.json
 # IDE project files Unity tự sinh
 *.csproj
 *.unityproj

@@ -30,8 +30,8 @@ public sealed class VLPlayDemoConsole : MonoBehaviour
     private bool _useStaging = true;
 
     // Lazily-built styles — GUIStyle needs a live skin, so no field initializers.
-    private GUIStyle _headerStyle, _badgeStyle, _pillStyle, _sectionStyle, _logStyle, _tileStyle;
-    private Texture2D _badgeStgTex, _badgeProdTex, _pillTex;
+    private GUIStyle _headerStyle, _badgeStyle, _pillStyle, _sectionStyle, _logStyle, _tileStyle, _panelStyle, _logPanelStyle, _clearStyle;
+    private Texture2D _badgeStgTex, _badgeProdTex, _pillTex, _panelTex, _logPanelTex, _tileNormalTex, _tileHoverTex, _tileActiveTex;
     private bool _stylesReady;
 
     private void OnEnable()
@@ -347,10 +347,24 @@ public sealed class VLPlayDemoConsole : MonoBehaviour
 
     // ---- U6-1: chrome ----
 
-    private static Texture2D SolidTex(Color c)
+    // Anti-aliased rounded-rect for 9-slicing — gives tiles + panels real rounded
+    // corners without shipping any art. Pair with GUIStyle.border = radius.
+    private static Texture2D RoundedTex(Color fill, int radius = 18)
     {
-        var t = new Texture2D(1, 1);
-        t.SetPixel(0, 0, c);
+        int size = radius * 2 + 2;
+        var t = new Texture2D(size, size, TextureFormat.ARGB32, false) { wrapMode = TextureWrapMode.Clamp };
+        var px = new Color[size * size];
+        for (int y = 0; y < size; y++)
+            for (int x = 0; x < size; x++)
+            {
+                float ix = Mathf.Clamp(x, radius, size - 1 - radius);
+                float iy = Mathf.Clamp(y, radius, size - 1 - radius);
+                float d = Mathf.Sqrt((x - ix) * (x - ix) + (y - iy) * (y - iy));
+                var c = fill;
+                c.a *= Mathf.Clamp01(radius + 0.5f - d); // solid inside, 1px AA on the rim
+                px[y * size + x] = c;
+            }
+        t.SetPixels(px);
         t.Apply();
         return t;
     }
@@ -360,45 +374,75 @@ public sealed class VLPlayDemoConsole : MonoBehaviour
         if (_stylesReady) return;
         _stylesReady = true;
 
-        _badgeStgTex  = SolidTex(new Color(0.85f, 0.55f, 0.10f, 0.95f)); // amber
-        _badgeProdTex = SolidTex(new Color(0.15f, 0.60f, 0.30f, 0.95f)); // green
-        _pillTex      = SolidTex(new Color(0f, 0f, 0f, 0.45f));
+        _badgeStgTex   = RoundedTex(new Color32(0xE0, 0x8A, 0x14, 0xFF), 12); // amber
+        _badgeProdTex  = RoundedTex(new Color32(0x25, 0x9E, 0x4F, 0xFF), 12); // green
+        _pillTex       = RoundedTex(new Color32(0x0A, 0x0F, 0x18, 0xC8), 16);
+        _panelTex      = RoundedTex(new Color32(0x18, 0x20, 0x2E, 0xF7), 20); // card, near-opaque so text reads crisp
+        _logPanelTex   = RoundedTex(new Color32(0x0C, 0x11, 0x1A, 0xFB), 20);
+        _tileNormalTex = RoundedTex(new Color32(0x2A, 0x35, 0x49, 0xFF), 16); // slate
+        _tileHoverTex  = RoundedTex(new Color32(0x37, 0x46, 0x62, 0xFF), 16);
+        _tileActiveTex = RoundedTex(new Color32(0xE8, 0x19, 0x2C, 0xFF), 16); // brand red on press
 
         _headerStyle = new GUIStyle(GUI.skin.label)
         {
-            fontSize = 22, fontStyle = FontStyle.Bold,
+            fontSize = 30, fontStyle = FontStyle.Bold,
             normal = { textColor = Color.white }
         };
         _badgeStyle = new GUIStyle(GUI.skin.label)
         {
-            fontSize = 14, fontStyle = FontStyle.Bold, alignment = TextAnchor.MiddleCenter,
+            fontSize = 16, fontStyle = FontStyle.Bold, alignment = TextAnchor.MiddleCenter,
             normal = { textColor = Color.white, background = _badgeStgTex },
-            padding = new RectOffset(10, 10, 4, 4)
+            border = new RectOffset(12, 12, 12, 12),
+            padding = new RectOffset(14, 14, 6, 6)
         };
         _pillStyle = new GUIStyle(GUI.skin.label)
         {
-            fontSize = 15, alignment = TextAnchor.MiddleRight,
+            fontSize = 16, alignment = TextAnchor.MiddleRight,
             normal = { textColor = Color.white, background = _pillTex },
-            padding = new RectOffset(12, 12, 4, 4)
+            border = new RectOffset(16, 16, 16, 16),
+            padding = new RectOffset(16, 16, 8, 8)
         };
         _sectionStyle = new GUIStyle(GUI.skin.label)
         {
-            fontSize = 13, fontStyle = FontStyle.Bold,
-            normal = { textColor = new Color(1f, 1f, 1f, 0.65f) }
+            fontSize = 17, fontStyle = FontStyle.Bold,
+            normal = { textColor = new Color32(0xFF, 0x7A, 0x7A, 0xFF) }, // brand-red accent
+            padding = new RectOffset(2, 2, 4, 2)
         };
-        _logStyle = new GUIStyle(GUI.skin.label) { fontSize = 14, wordWrap = true };
-        _tileStyle = new GUIStyle(GUI.skin.button) { fontSize = 17 };
+        _logStyle = new GUIStyle(GUI.skin.label)
+        {
+            fontSize = 17, wordWrap = true,
+            normal = { textColor = new Color(0.95f, 0.97f, 1f) }
+        };
+        _tileStyle = new GUIStyle(GUI.skin.button)
+        {
+            fontSize = 22, fontStyle = FontStyle.Bold, alignment = TextAnchor.MiddleCenter,
+            border = new RectOffset(16, 16, 16, 16),
+            margin = new RectOffset(5, 5, 5, 5),
+            padding = new RectOffset(6, 6, 6, 6),
+            normal   = { background = _tileNormalTex, textColor = Color.white },
+            hover    = { background = _tileHoverTex,  textColor = Color.white },
+            active   = { background = _tileActiveTex, textColor = Color.white },
+            onNormal = { background = _tileNormalTex, textColor = Color.white }
+        };
+        _clearStyle = new GUIStyle(_tileStyle) { fontSize = 16 };
+        _panelStyle = new GUIStyle(GUI.skin.box)
+        {
+            normal = { background = _panelTex },
+            border = new RectOffset(20, 20, 20, 20),
+            padding = new RectOffset(14, 14, 12, 14)
+        };
+        _logPanelStyle = new GUIStyle(_panelStyle) { normal = { background = _logPanelTex } };
     }
 
     private void Section(string title)
     {
-        GUILayout.Space(6);
-        GUILayout.Label(title, _sectionStyle);
+        GUILayout.Space(10);
+        GUILayout.Label("▎ " + title, _sectionStyle);
     }
 
     private bool Tile(string label)
     {
-        return GUILayout.Button(label, _tileStyle, GUILayout.Height(52));
+        return GUILayout.Button(label, _tileStyle, GUILayout.Height(64));
     }
 
     private void DrawHeader()
@@ -433,6 +477,7 @@ public sealed class VLPlayDemoConsole : MonoBehaviour
 
     private void DrawTiles()
     {
+        GUILayout.BeginVertical(_panelStyle);
         _tileScroll = GUILayout.BeginScrollView(_tileScroll);
 
         Section("TÀI KHOẢN");
@@ -503,35 +548,43 @@ public sealed class VLPlayDemoConsole : MonoBehaviour
 #endif
 
         GUILayout.EndScrollView();
+        GUILayout.EndVertical();
     }
 
     private void DrawLogPanel()
     {
+        GUILayout.BeginVertical(_logPanelStyle);
         GUILayout.BeginHorizontal();
-        GUILayout.Label("Event log (" + _log.Count + ")", _sectionStyle);
+        GUILayout.Label("▎ EVENT LOG (" + _log.Count + ")", _sectionStyle);
         GUILayout.FlexibleSpace();
-        if (GUILayout.Button("Clear", GUILayout.Width(80), GUILayout.Height(28))) _log.Clear();
+        if (GUILayout.Button("Clear", _clearStyle, GUILayout.Width(96), GUILayout.Height(40))) _log.Clear();
         GUILayout.EndHorizontal();
+        GUILayout.Space(4);
 
-        _logScroll = GUILayout.BeginScrollView(_logScroll, GUI.skin.box);
+        _logScroll = GUILayout.BeginScrollView(_logScroll);
         for (int i = 0; i < _log.Count; i++) GUILayout.Label(_log[i], _logStyle);
         GUILayout.EndScrollView();
+        GUILayout.EndVertical();
     }
 
     private void OnGUI()
     {
         EnsureStyles();
-        const float pad = 12f;
-        GUILayout.BeginArea(new Rect(pad, pad, Screen.width - pad * 2, Screen.height - pad * 2));
+        const float pad = 14f;
+        // Respect the notch / rounded corners so the header isn't clipped on device.
+        Rect sa = Screen.safeArea;
+        float top = Screen.height - (sa.y + sa.height);
+        var area = new Rect(sa.x + pad, top + pad, sa.width - pad * 2, sa.height - pad * 2);
+        GUILayout.BeginArea(area);
 
         DrawHeader();
-        GUILayout.Space(8);
+        GUILayout.Space(10);
 
         bool twoColumn = Screen.width > Screen.height; // landscape → tiles | log side by side
         if (twoColumn)
         {
             GUILayout.BeginHorizontal();
-            GUILayout.BeginVertical(GUILayout.Width((Screen.width - pad * 2) * 0.52f));
+            GUILayout.BeginVertical(GUILayout.Width(area.width * 0.52f));
             DrawTiles();
             GUILayout.EndVertical();
             GUILayout.Space(10);
