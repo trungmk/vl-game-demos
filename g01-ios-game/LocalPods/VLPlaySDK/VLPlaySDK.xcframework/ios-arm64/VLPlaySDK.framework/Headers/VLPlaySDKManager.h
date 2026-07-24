@@ -370,7 +370,7 @@ typedef NS_ENUM(NSInteger, VLPlayHUDStyle) {
         Legacy v2.1 response shape (`{ productId, productName, price, currency }`)
         is also passed through unchanged — caller should tolerate both.
         On failure: `error.userInfo[@"message"]` contains a localized message.
- @discussion Calls `GET /api/v1/client/purchase/products?clientId={gameId}`.
+ @discussion Calls `GET /api/v1/client/purchase/products?clientId={gameId}&platform=ios`.
         Requires the user to be signed in (Bearer + apikey sent automatically).
  */
 - (void)getProductCatalog:(nullable void (^)(BOOL status, NSArray * _Nullable data, NSError * _Nullable error))completion NS_AVAILABLE_IOS(8_0);
@@ -486,8 +486,6 @@ typedef void (^VLPlayRestoreCompletionBlock)(NSInteger restoredCount, NSError * 
                               completion:(nullable void (^)(BOOL status,
                                                             NSArray * _Nullable transactions,
                                                             NSError * _Nullable error))completion NS_AVAILABLE_IOS(8_0);
-
-/*!
 
 /*!
  @brief method to update game server and character info.

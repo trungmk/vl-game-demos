@@ -107,7 +107,10 @@ typedef NS_ENUM(NSInteger, VLPlayAuthFlow) {
 // verified). Idempotent per session.
 - (void)runPostIdentitySequence;
 
-- (void)handleSignInResponse:(id)loginData authenType:(AuthenType)type containerController:(UIViewController *)controller showWelcome:(BOOL)welcome;
+// loginData may be nil: token-refresh session resume (e.g. Apple cold-launch)
+// drives the post-sign-in chokepoint without a login response — -loadData:
+// early-returns on nil, leaving the cached account intact.
+- (void)handleSignInResponse:(nullable id)loginData authenType:(AuthenType)type containerController:(nullable UIViewController *)controller showWelcome:(BOOL)welcome;
 - (void)handleSignOut;
 
 @end

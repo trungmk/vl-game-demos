@@ -58,7 +58,7 @@ PODS:
     - OneSignalXCFramework/OneSignalNotifications
     - OneSignalXCFramework/OneSignalOSCore
     - OneSignalXCFramework/OneSignalOutcomes
-  - VLPlaySDK (1.2.1):
+  - VLPlaySDK (1.3.2):
     - FBSDKCoreKit (~> 18.0)
     - FBSDKLoginKit (~> 18.0)
     - FBSDKShareKit (~> 18.0)
@@ -92,7 +92,7 @@ SPEC CHECKSUMS:
   Google-Mobile-Ads-SDK: 6e501ace4af8d63e967bd45497c8b2b05821163d
   GoogleUserMessagingPlatform: befe603da6501006420c206222acd449bba45a9c
   OneSignalXCFramework: 2b46c36b38528b65dce33ed9d83375f8c98bf40c
-  VLPlaySDK: c972724b7561135250c36bb98313f83f02f9b8b9
+  VLPlaySDK: 3898078c28eab790bf60f3c0f700033665ac7716
 
 PODFILE CHECKSUM: 49072a308db3e133d3b8e969aa774faa7dc7b104
 
